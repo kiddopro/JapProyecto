@@ -12,10 +12,12 @@ userLogin = () => {
   } else if (pass.trim() === '') {
     localStorage.setItem('username', user);
     localStorage.setItem('typeUser', 'guest');
+    location.href = 'index.html';
   } else {
     localStorage.setItem('username', user);
     localStorage.setItem('password', pass);
     localStorage.setItem('typeUser', 'member');
+    location.href = 'index.html';
   }
 
   console.log(
@@ -26,6 +28,4 @@ userLogin = () => {
       ' TypeUser: ' +
       localStorage.getItem('typeUser')
   );
-
-  location.href = 'index.html';
 };
