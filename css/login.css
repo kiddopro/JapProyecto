@@ -1,12 +1,15 @@
+* {
+  font-family: 'Raleway', serif;
+}
+
 body {
-  background-color: lightgray !important;
+  background-color: black !important;
 }
 
 div.login-container {
   margin: 15% auto;
   width: 300px;
   /* border: 1px dashed red; */
-  text-align: center;
 }
 
 div.login-container input,
@@ -19,7 +22,6 @@ div.login-container button {
   width: 100%;
   border: none;
   outline: none;
-  border-radius: 20px;
 }
 
 div.login-container button {
@@ -35,5 +37,14 @@ div.login-container h1 span {
 }
 
 div.login-container h1 {
+  text-align: center;
   padding-bottom: 10px;
+  color: white;
+}
+
+div.login-container small {
+  float: right;
+  color: #ffffff;
+  text-shadow: 0 0 12px #fff, 0 0 12px #fff;
+  padding-top: 5px;
 }
