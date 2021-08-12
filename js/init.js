@@ -47,7 +47,7 @@ var getJSONData = function (url) {
 };
 
 signOut = () => {
-  var auth2 = gapi.auth2.getAuthInstance();
+  var auth2 = gapi.auth2.getAuthInstance().disconnect();
   auth2.signOut().then(function () {
     console.log('User signed out.');
     location.href = 'login.html';
