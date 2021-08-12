@@ -21,6 +21,20 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+
+    <script
+      src="https://apis.google.com/js/platform.js?onload=onLoadCallback"
+      async
+      defer
+    ></script>
+    <script>
+      window.onLoadCallback = function () {
+        gapi.auth2.init({
+          client_id:
+            '611107579766-hmn44ckmgio57ramqu1sfrbgptlckq0r.apps.googleusercontent.com',
+        });
+      };
+    </script>
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
