@@ -22,6 +22,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/login.css" />
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="611107579766-hmn44ckmgio57ramqu1sfrbgptlckq0r.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
       html,
       body {
@@ -50,6 +56,7 @@
   <body class="text-center">
     <div class="login-container">
       <h1>Sign <span>in</span></h1>
+      <span id="alert-messsage"></span>
       <input type="text" id="name" placeholder="put your name here" required />
       <input
         type="password"
@@ -57,7 +64,13 @@
         placeholder="put your password here"
         required
       />
-      <button onclick="userLogin()">Login</button>
+      <button onclick="userLogin()" class="button">Login</button>
+      <div
+        class="g-signin2 mx-1 w-100"
+        data-onsuccess="onSignIn"
+        data-theme="dark"
+      ></div>
+
       <small>Made by Martín Suárez</small>
     </div>
 

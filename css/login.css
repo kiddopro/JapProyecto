@@ -24,12 +24,12 @@ div.login-container button {
   outline: none;
 }
 
-div.login-container button {
+div.login-container .button {
   background-color: rgb(45, 158, 121);
   color: #ffffff;
 }
 
-div.login-container button:hover {
+div.login-container .button:hover {
   background-color: rgb(56, 136, 109);
 }
 div.login-container h1 span {
@@ -47,4 +47,8 @@ div.login-container small {
   color: #ffffff;
   text-shadow: 0 0 12px #fff, 0 0 12px #fff;
   padding-top: 5px;
+}
+
+span.alert-messsage {
+  display: none;
 }
