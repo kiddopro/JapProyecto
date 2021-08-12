@@ -46,13 +46,15 @@ var getJSONData = function (url) {
     });
 };
 
+const disconnect = () => {
+  localStorage.clear();
+  location.href = 'login.html';
+};
 
-function disconnect() {
+function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
-  auth2.disconnect().then(()=>{
+  auth2.signOut().then(function () {
     console.log('User signed out.');
-    localStorage.clear();
-    location.href = 'login.html';
 });
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
