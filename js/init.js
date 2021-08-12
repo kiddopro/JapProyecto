@@ -49,10 +49,10 @@ var getJSONData = function (url) {
 
 function disconnect() {
   var auth2 = gapi.auth2.getAuthInstance();
-  auth2.disconnect().then(function () {
+  auth2.disconnect().then(()=>{
     console.log('User signed out.');
     localStorage.clear();
-  location.href = 'login.html';
+    location.href = 'login.html';
 });
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
