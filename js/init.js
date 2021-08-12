@@ -46,10 +46,14 @@ var getJSONData = function (url) {
     });
 };
 
-const disconnect = () => {
-  localStorage.clear();
+
+function disconnect() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.disconnect().then(function () {
+    console.log('User signed out.');
+    localStorage.clear();
   location.href = 'login.html';
-};
+});
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
