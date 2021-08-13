@@ -14,14 +14,14 @@ userLogin = () => {
     alert.style.display = 'inline';
   } else if (pass.trim() === '') {
     alert.style.display = 'none';
-    localStorage.setItem('username', user);
-    localStorage.setItem('typeUser', 'guest');
+    sessionStorage.setItem('username', user);
+    sessionStorage.setItem('typeUser', 'guest');
     location.href = 'index.html';
   } else {
     alert.style.display = 'none';
-    localStorage.setItem('username', user);
-    localStorage.setItem('password', pass);
-    localStorage.setItem('typeUser', 'member');
+    sessionStorage.setItem('username', user);
+    sessionStorage.setItem('password', pass);
+    sessionStorage.setItem('typeUser', 'member');
     location.href = 'index.html';
   }
 
