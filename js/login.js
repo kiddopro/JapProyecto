@@ -51,6 +51,11 @@ function onSignIn(googleUser) {
   //location.href = 'index.html';
 }
 
+function disconnect() {
+  location.href =
+    'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login';
+}
+
 function signOut() {
   var auth2 = new gapi.auth2.getAuthInstance().disconnect();
   auth2.signOut().then(function () {
