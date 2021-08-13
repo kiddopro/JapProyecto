@@ -52,8 +52,24 @@ function onSignIn(googleUser) {
 }
 
 function disconnect() {
-  location.href =
-    'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login';
+  // location.href =
+  //   'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login';
+
+  window.gapi.load('auth2', () => {
+    window.gapi.auth2
+      .init({
+        client_id:
+          '611107579766-hmn44ckmgio57ramqu1sfrbgptlckq0r.apps.googleusercontent.com',
+      })
+      .then(() => {
+        window.gapi.auth2
+          .getAuthInstance()
+          .signOut()
+          .then(function () {
+            console.log('User signed out.');
+          });
+      });
+  });
 }
 
 function signOut() {
