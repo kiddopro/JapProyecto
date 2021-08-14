@@ -50,7 +50,7 @@ function signOut() {
     location.href = 'login.html';
   });
 
-  function signout() {
+  function salir() {
     localStorage.clear();
     location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
   }

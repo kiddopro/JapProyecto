@@ -35,12 +35,6 @@
         } else {
           console.log('Se logueo con user and password');
         }
-
-        function onLoad() {
-          gapi.load('auth2', function () {
-            gapi.auth2.init();
-          });
-        }
       });
     </script>
   </head>
@@ -58,7 +52,7 @@
         >
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="#" onclick="signout()"
+        <a class="py-2 d-none d-md-inline-block" href="#" onclick="salir()"
           >Sign Out</a
         >
       </div>
@@ -190,11 +184,7 @@
         </p>
       </div>
     </footer>
-    <script
-      src="https://apis.google.com/js/platform.js?onload=onLoad"
-      async
-      defer
-    ></script>
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
