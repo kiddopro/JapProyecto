@@ -35,6 +35,12 @@
         } else {
           console.log('Se logueo con user and password');
         }
+
+        function onLoad() {
+          gapi.load('auth2', function () {
+            gapi.auth2.init();
+          });
+        }
       });
     </script>
   </head>
