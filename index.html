@@ -22,6 +22,16 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://apis.google.com/js/platform.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let datos = sessionStorage.getItem('meail');
+        if (datos) {
+          console.log('Se logueo con google');
+        } else {
+          console.log('Se logueo con user and password');
+        }
+      });
+    </script>
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
