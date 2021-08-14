@@ -18,6 +18,7 @@ userLogin = () => {
     localStorage.setItem('typeUser', 'guest');
     location.href = 'index.html';
   } else {
+    alert.style.display = 'none';
     localStorage.setItem('username', user);
     localStorage.setItem('password', pass);
     localStorage.setItem('typeUser', 'member');
