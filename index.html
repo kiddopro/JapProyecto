@@ -24,7 +24,7 @@
     <script src="https://apis.google.com/js/platform.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        let datos = sessionStorage.getItem('meail');
+        let datos = localStorage.getItem('email');
         if (datos) {
           console.log('Se logueo con google');
         } else {
