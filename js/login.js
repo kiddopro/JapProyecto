@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function (e) {});
 
 userLogin = () => {
   let alert = document.getElementById('alert-messsage');
-  alert.innerHTML = 'You need at least an username';
+  alert.innerHTML = 'You need to put an user and password';
   alert.style.color = '#E50000';
   let user = document.getElementById('name').value;
   let pass = document.getElementById('pass').value;
 
-  if (user.trim() === '') {
+  if (user.trim() === '' && pass.trim() === '') {
     alert.style.display = 'inline';
   } else if (pass.trim() === '') {
     alert.style.display = 'none';
@@ -18,21 +18,11 @@ userLogin = () => {
     sessionStorage.setItem('typeUser', 'guest');
     location.href = 'index.html';
   } else {
-    alert.style.display = 'none';
     sessionStorage.setItem('username', user);
     sessionStorage.setItem('password', pass);
     sessionStorage.setItem('typeUser', 'member');
     location.href = 'index.html';
   }
-
-  console.log(
-    'User: ' +
-      localStorage.getItem('username') +
-      ' Password: ' +
-      localStorage.getItem('password') +
-      ' TypeUser: ' +
-      localStorage.getItem('typeUser')
-  );
 };
 //var profile;
 function onSignIn(googleUser) {
@@ -43,7 +33,7 @@ function onSignIn(googleUser) {
   console.log('Given Name: ' + profile.getGivenName());
   console.log('Family Name: ' + profile.getFamilyName());
   console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
+  sessionStorage('Email: ' + profile.getEmail());
 
   // The ID token you need to pass to your backend:
   var id_token = googleUser.getAuthResponse().id_token;
