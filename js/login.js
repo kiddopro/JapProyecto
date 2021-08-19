@@ -37,16 +37,15 @@ function onSignIn(googleUser) {
   location.href = 'index.html';
 }
 
-function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-    localStorage.clear();
-    location.href = 'login.html';
-  });
+// function signOut() {
+//   var auth2 = gapi.auth2.getAuthInstance();
+//   auth2.signOut().then(function () {
+//     console.log('User signed out.');
+//     localStorage.clear();
+//     location.href = 'login.html';
+//   });
 
-  function salir() {
-    localStorage.clear();
-    location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
-  }
+function signOut() {
+  localStorage.clear();
+  location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
 }
