@@ -14,9 +14,9 @@ userLogin = () => {
     alert.style.display = 'inline';
   } else {
     alert.style.display = 'none';
-    localStorage.setItem('username', user);
-    localStorage.setItem('password', pass);
-    localStorage.setItem('typeUser', 'member');
+    sessionStorage.setItem('username', user);
+    sessionStorage.setItem('password', pass);
+    sessionStorage.setItem('typeUser', 'member');
     location.href = 'index.html';
   }
 };
@@ -46,12 +46,12 @@ function onSignIn(googleUser) {
 //   });
 
 function signOut() {
-  if (localStorage.getItem('username')) {
-    localStorage.clear();
+  if (sessionStorage.getItem('username')) {
+    sessionStorage.clear();
     location.href = 'login.html';
   } else {
     //https://mail.google.com/mail/u/0/?logout&hl=en
-    localStorage.clear();
+    sessionStorage.clear();
     location.href =
       'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login.html';
     // location.href =
