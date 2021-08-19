@@ -51,11 +51,11 @@ function signOut() {
     location.href = 'login.html';
   } else {
     //https://mail.google.com/mail/u/0/?logout&hl=en
+    // location.href =
+    //   'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue="' +
+    //   'https://kiddopro.github.io/JapProyecto/login.html"';
     location.href =
-      'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue="' +
-      'https://kiddopro.github.io/JapProyecto/login.html"';
+      'https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login.html';
     localStorage.clear();
-
-    //https://appengine.google.com/_ah/logout?continue=http://www.YOURSITE.com
   }
 }
