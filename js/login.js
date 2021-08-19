@@ -14,9 +14,9 @@ userLogin = () => {
     alert.style.display = 'inline';
   } else {
     alert.style.display = 'none';
-    sessionStorage.setItem('username', user);
-    sessionStorage.setItem('password', pass);
-    sessionStorage.setItem('typeUser', 'member');
+    localStorage.setItem('username', user);
+    localStorage.setItem('password', pass);
+    localStorage.setItem('typeUser', 'member');
     location.href = 'index.html';
   }
 };
@@ -29,7 +29,7 @@ function onSignIn(googleUser) {
   console.log('Given Name: ' + profile.getGivenName());
   console.log('Family Name: ' + profile.getFamilyName());
   console.log('Image URL: ' + profile.getImageUrl());
-  sessionStorage.setItem('email', profile.getEmail());
+  localStorage.setItem('email', profile.getEmail());
 
   // The ID token you need to pass to your backend:
   var id_token = googleUser.getAuthResponse().id_token;
@@ -46,12 +46,12 @@ function onSignIn(googleUser) {
 //   });
 
 function signOut() {
-  if (sessionStorage.getItem('username')) {
-    sessionStorage.clear();
+  if (localStorage.getItem('username')) {
+    localStorage.clear();
     location.href = 'login.html';
   } else {
     //https://mail.google.com/mail/u/0/?logout&hl=en
-    sessionStorage.clear();
+    localStorage.clear();
     location.href =
       'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login.html';
     // location.href =
