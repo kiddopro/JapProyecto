@@ -10,7 +10,7 @@ userLogin = () => {
   let user = document.getElementById('name').value;
   let pass = document.getElementById('pass').value;
 
-  if (user.trim() === '' && pass.trim() === '') {
+  if (user.trim() === '' || pass.trim() === '') {
     alert.style.display = 'inline';
   } else {
     alert.style.display = 'none';
