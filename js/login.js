@@ -50,6 +50,9 @@ function signOut() {
     localStorage.clear();
     location.href = 'login.html';
   } else {
-    location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    //location.href = 'https://mail.google.com/mail/u/0/?logout&hl=en';
+    location.href =
+      'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue="' +
+      'https://kiddopro.github.io/JapProyecto/login.html"';
   }
 }
