@@ -29,13 +29,17 @@
     <script src="js/login.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        let datos = localStorage.getItem('email');
-        console.log(datos);
-
-        if (datos) {
+        let datos = [];
+        datos.push(localStorage.getItem('email'));
+        datos.push(localStorage.getItem('user'));
+        if (datos[0]) {
           console.log('Se logueo con google');
-        } else {
+          console.log(datos[0]);
+        } else if (datos[1]) {
           console.log('Se logueo con user and password');
+          console.log(datos[1]);
+        } else {
+          location.href = 'login.html';
         }
       });
     </script>
