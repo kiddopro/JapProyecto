@@ -12,11 +12,6 @@ userLogin = () => {
 
   if (user.trim() === '' && pass.trim() === '') {
     alert.style.display = 'inline';
-  } else if (pass.trim() === '') {
-    alert.style.display = 'none';
-    localStorage.setItem('username', user);
-    localStorage.setItem('typeUser', 'guest');
-    location.href = 'index.html';
   } else {
     alert.style.display = 'none';
     localStorage.setItem('username', user);

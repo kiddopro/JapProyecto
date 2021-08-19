@@ -29,15 +29,14 @@
     <script src="js/login.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        let datos = [];
-        datos.push(localStorage.getItem('email'));
-        datos.push(localStorage.getItem('user'));
-        if (datos[0]) {
+        let google = localStorage.getItem('email')
+        let common = localStorage.getItem('username')
+        if (google) {
           console.log('Se logueo con google');
-          console.log(datos[0]);
-        } else if (datos[1]) {
+          console.log(google]);
+        } else if (common) {
           console.log('Se logueo con user and password');
-          console.log(datos[1]);
+          console.log(common);
         } else {
           location.href = 'login.html';
         }
@@ -58,9 +57,6 @@
         >
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="#" onclick="salir()"
-          >Sign Out</a
-        >
       </div>
     </nav>
     <main role="main">
