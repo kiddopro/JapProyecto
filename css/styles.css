@@ -158,8 +158,6 @@ div.popup-logout:hover {
   cursor: pointer;
   width: 62px;
 }
-a.profile {
-  pointer-events: none !important;
-  cursor: default;
+.profile {
   color: #229ebd !important;
 }
