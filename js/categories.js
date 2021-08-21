@@ -52,6 +52,8 @@ function showCategoriesList() {
   let max = document.getElementById('rangeFilterCountMax').value;
   for (let i = 0; i < currentCategoriesArray.length; i++) {
     let category = currentCategoriesArray[i];
+    minCount = min;
+    maxCount = max;
 
     if (
       (minCount == undefined ||
