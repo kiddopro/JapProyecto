@@ -65,7 +65,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
 function showCategoriesList() {
   let htmlContentToAppend = '';
   for (let i = 0; i < currentCategoriesArray.length; i++) {
-    let category = currentCategoriesArray.data[i];
+    let category = currentCategoriesArray[i];
 
     if (
       (minCount == undefined ||
