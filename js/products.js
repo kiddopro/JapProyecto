@@ -91,12 +91,15 @@ function showCategoriesList() {
         category.name +
         `</h4>
                             <small class="text-muted">` +
-        category.productCount +
+        category.soldCount +
         ` artículos</small>
                         </div>
                         <p class="mb-1">` +
         category.description +
         `</p>
+        <small class="text-muted">` +
+        dato.cost +
+        ` 
                     </div>
                 </div>
             </a>
