@@ -214,10 +214,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         search = document.getElementById('searchInput').value;
         console.log(search);
         showCategoriesList2();
-      } else if (event.code === '') {
-        showCategoriesList();
       }
-      console.log(event.charCode);
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
