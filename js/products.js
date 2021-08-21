@@ -30,8 +30,8 @@ function sortCategories(criteria, array) {
     });
   } else if (criteria === ORDER_BY_PROD_COUNT) {
     result = array.sort(function (a, b) {
-      let aCount = parseInt(a.productCount);
-      let bCount = parseInt(b.productCount);
+      let aCount = parseInt(a.soldCount);
+      let bCount = parseInt(b.soldCount);
 
       if (aCount > bCount) {
         return -1;
@@ -69,10 +69,9 @@ function showCategoriesList() {
 
     if (
       (minCount == undefined ||
-        (minCount != undefined &&
-          parseInt(category.productCount) >= minCount)) &&
+        (minCount != undefined && parseInt(category.soldCount) >= minCount)) &&
       (maxCount == undefined ||
-        (maxCount != undefined && parseInt(category.productCount) <= maxCount))
+        (maxCount != undefined && parseInt(category.soldCount) <= maxCount))
     ) {
       htmlContentToAppend +=
         `
@@ -97,7 +96,7 @@ function showCategoriesList() {
                         <p class="mb-1">` +
         category.description +
         `</p>
-        <small class="text-muted">` +
+        <p class="mb-1">` +
         category.cost +
         category.currency +
         ` 
