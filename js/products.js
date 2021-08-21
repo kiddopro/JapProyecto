@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
   document
     .getElementById('searchInput')
     .addEventListener('keypress', function (event) {
-      search += event.key;
       if (event.key === 'Enter') {
+        search = document.getElementById('searchInput').value;
         console.log(search);
         showCategoriesList2();
       }
