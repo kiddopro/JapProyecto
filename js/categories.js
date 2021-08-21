@@ -6,8 +6,6 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
-console.log(localStorage.getItem('username'));
-
 function sortCategories(criteria, array) {
   let result = [];
   if (criteria === ORDER_ASC_BY_NAME) {
@@ -56,6 +54,8 @@ function showCategoriesList() {
     let category = currentCategoriesArray[i];
     minCount = min;
     maxCount = max;
+
+    console.log('min ' + minCount + ' max ' + maxCount);
 
     if (
       (minCount == undefined ||
