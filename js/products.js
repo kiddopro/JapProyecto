@@ -217,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
       } else if (event.code === '') {
         showCategoriesList();
       }
+      console.log(event.charCode);
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
