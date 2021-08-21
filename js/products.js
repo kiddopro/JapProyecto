@@ -215,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         console.log(search);
         showCategoriesList2();
       }
+      console.log(event.code);
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
