@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
   document
     .getElementById('searchInput')
     .addEventListener('keypress', function (event) {
-      search = event.code;
+      search = event.key;
       console.log(search);
       showCategoriesList2();
     });
