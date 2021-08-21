@@ -212,8 +212,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
     .addEventListener('keypress', function (event) {
       if (event.key === 'Enter') {
         search = document.getElementById('searchInput').value;
-        console.log(search);
-        showCategoriesList2();
+        if (search != '') {
+          showCategoriesList2();
+        } else {
+          showCategoriesList();
+        }
       }
     });
 
