@@ -119,7 +119,7 @@ function showCategoriesList2() {
 
     if (
       search === undefined ||
-      (search != undefined && category.name === search)
+      (search != undefined && category.name === search) //comentrairo
     ) {
       htmlContentToAppend +=
         `
