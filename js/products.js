@@ -210,9 +210,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
   document
     .getElementById('searchInput')
     .addEventListener('keypress', function (event) {
-      search = event.key;
+      search += event.key;
+      if (event.key === 'Enter') {
+        showCategoriesList2();
+      }
       console.log(search);
-      showCategoriesList2();
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
