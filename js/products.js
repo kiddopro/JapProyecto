@@ -212,9 +212,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
     .addEventListener('keypress', function (event) {
       search += event.key;
       if (event.key === 'Enter') {
+        console.log(search);
         showCategoriesList2();
       }
-      console.log(search);
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
