@@ -5,6 +5,7 @@ var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var search = undefined;
 
 function sortCategories(criteria, array) {
   let result = [];
@@ -111,6 +112,53 @@ function showCategoriesList() {
   }
 }
 
+function showCategoriesList2() {
+  let htmlContentToAppend = '';
+  for (let i = 0; i < currentCategoriesArray.length; i++) {
+    let category = currentCategoriesArray[i];
+
+    if (
+      search === undefined ||
+      (search != undefined && category.name === search)
+    ) {
+      htmlContentToAppend +=
+        `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` +
+        category.imgSrc +
+        `" alt="` +
+        category.description +
+        `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">` +
+        category.name +
+        `</h4>
+                            <small class="text-muted">` +
+        category.soldCount +
+        ` artículos</small>
+                        </div>
+                        <p class="mb-1">` +
+        category.description +
+        `</p>
+        <p class="mb-1">` +
+        category.cost +
+        category.currency +
+        ` 
+                    </div>
+                </div>
+            </a>
+            `;
+    }
+
+    document.getElementById('product-list-container').innerHTML =
+      htmlContentToAppend;
+  }
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -158,6 +206,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
       sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
     }
   });
+
+  document
+    .getElementById('searchInput')
+    .addEventListener('keypress', function (event) {
+      search = event.code;
+      showCategoriesList2();
+    });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
     sortAndShowCategories(ORDER_ASC_BY_NAME);
