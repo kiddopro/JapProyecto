@@ -48,12 +48,6 @@ function sortCategories(criteria, array) {
 
 function showCategoriesList() {
   let htmlContentToAppend = '';
-  let min = document.getElementById('rangeFilterCountMin').value;
-  let max = document.getElementById('rangeFilterCountMax').value;
-  console.log(minCount);
-  minCount = min;
-  console.log(minCount);
-  maxCount = max;
   for (let i = 0; i < currentCategoriesArray.length; i++) {
     let category = currentCategoriesArray[i];
 
