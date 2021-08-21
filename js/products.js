@@ -98,7 +98,8 @@ function showCategoriesList() {
         category.description +
         `</p>
         <small class="text-muted">` +
-        dato.cost +
+        category.cost +
+        category.currency +
         ` 
                     </div>
                 </div>
