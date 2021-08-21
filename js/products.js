@@ -211,6 +211,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     .getElementById('searchInput')
     .addEventListener('keypress', function (event) {
       search = event.code;
+      console.log(search);
       showCategoriesList2();
     });
 
