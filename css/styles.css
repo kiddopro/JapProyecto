@@ -158,6 +158,7 @@ div.popup-logout:hover {
   cursor: pointer;
   width: 62px;
 }
-.profile {
+a.profile {
   color: #229ebd !important;
+  font-weight: bold !important;
 }
