@@ -159,5 +159,6 @@ div.popup-logout:hover {
   width: 62px;
 }
 a.profile {
-  pointer-events: none;
+  pointer-events: none !important;
+  cursor: default;
 }
