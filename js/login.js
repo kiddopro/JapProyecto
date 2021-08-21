@@ -3,7 +3,9 @@
 //elementos HTML presentes.
 document.addEventListener('DOMContentLoaded', function (e) {
   let profile = document.getElementById('profile');
-  profile.innerText = localStorage.getItem('username');
+  let usuario = localStorage.getItem('username');
+  let email = localStorage.getItem('email');
+  usuario ? (profile.innerHTML = usuario) : (profile.innerHTML = email);
 });
 
 userLogin = () => {
