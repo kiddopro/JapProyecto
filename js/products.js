@@ -7,6 +7,12 @@ var minCount = undefined;
 var maxCount = undefined;
 var search = undefined;
 
+const filtrar = (criterio) => {
+  return currentCategoriesArray.filter((element) => {
+    element.name.toLowerCase().indexOf(criterio.toLowerCase()) > -1;
+  });
+};
+
 function sortCategories(criteria, array) {
   let result = [];
   if (criteria === ORDER_ASC_BY_NAME) {
@@ -112,14 +118,15 @@ function showCategoriesList() {
   }
 }
 
-function showCategoriesList2() {
+function showCategoriesList2(result) {
   let htmlContentToAppend = '';
-  for (let i = 0; i < currentCategoriesArray.length; i++) {
-    let category = currentCategoriesArray[i];
+
+  for (let i = 0; i < result.length; i++) {
+    let category = result[i];
 
     if (
       search === undefined ||
-      (search != undefined && category.name === search)
+      (search != undefined && category.name === search) //Estoy en la rama filtro
     ) {
       htmlContentToAppend +=
         `
@@ -210,14 +217,18 @@ document.addEventListener('DOMContentLoaded', function (e) {
   document
     .getElementById('searchInput')
     .addEventListener('keypress', function (event) {
-      if (event.key === 'Enter') {
-        search = document.getElementById('searchInput').value;
-        if (search != '') {
-          showCategoriesList2();
-        } else {
-          showCategoriesList();
-        }
-      }
+      // if (event.key === 'Enter') {
+      //   search = document.getElementById('searchInput').value;
+      //   if (search != '') {
+      //     showCategoriesList2();
+      //   } else {
+      //     showCategoriesList();
+      //   }
+      // }
+
+      showCategoriesList2(
+        filtrar(document.getElementById('searchInput').value)
+      );
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
