@@ -7,6 +7,12 @@ var minCount = undefined;
 var maxCount = undefined;
 var search = undefined;
 
+const filtrar = (criterio) => {
+  return currentCategoriesArray.filter((element) => {
+    element.name.toLowerCase().indexOf(criterio.toLowerCase()) > -1;
+  });
+};
+
 function sortCategories(criteria, array) {
   let result = [];
   if (criteria === ORDER_ASC_BY_NAME) {
@@ -114,6 +120,7 @@ function showCategoriesList() {
 
 function showCategoriesList2() {
   let htmlContentToAppend = '';
+
   for (let i = 0; i < currentCategoriesArray.length; i++) {
     let category = currentCategoriesArray[i];
 
@@ -210,14 +217,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
   document
     .getElementById('searchInput')
     .addEventListener('keypress', function (event) {
-      if (event.key === 'Enter') {
-        search = document.getElementById('searchInput').value;
-        if (search != '') {
-          showCategoriesList2();
-        } else {
-          showCategoriesList();
-        }
-      }
+      // if (event.key === 'Enter') {
+      //   search = document.getElementById('searchInput').value;
+      //   if (search != '') {
+      //     showCategoriesList2();
+      //   } else {
+      //     showCategoriesList();
+      //   }
+      // }
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
