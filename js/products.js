@@ -225,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
       //     showCategoriesList();
       //   }
       // }
+      filtrar(document.getElementById('searchInput').value);
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
