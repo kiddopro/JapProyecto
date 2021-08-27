@@ -118,11 +118,11 @@ function showCategoriesList() {
   }
 }
 
-function showCategoriesList2() {
+function showCategoriesList2(result) {
   let htmlContentToAppend = '';
 
-  for (let i = 0; i < currentCategoriesArray.length; i++) {
-    let category = currentCategoriesArray[i];
+  for (let i = 0; i < result.length; i++) {
+    let category = result[i];
 
     if (
       search === undefined ||
@@ -225,7 +225,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
       //     showCategoriesList();
       //   }
       // }
-      filtrar(document.getElementById('searchInput').value);
+
+      showCategoriesList2(
+        filtrar(document.getElementById('searchInput').value)
+      );
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
