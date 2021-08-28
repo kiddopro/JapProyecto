@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
       let datos = document.getElementById('searchInput').value;
       console.log(datos);
-      // showCategoriesList2(filtrar(event));
+      showCategoriesList2(filtrar(datos));
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
