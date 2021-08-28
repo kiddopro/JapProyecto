@@ -126,7 +126,7 @@ function showCategoriesList2(result) {
 
     if (
       search === undefined ||
-      (search != undefined && category.name === search) //Estoy en la rama filtro
+      (search != undefined && category.name) //Estoy en la rama filtro
     ) {
       htmlContentToAppend +=
         `
