@@ -226,7 +226,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
       //   }
       // }
 
-      console.log(document.getElementById('searchInput').value);
+      let datos = document.getElementById('searchInput').value;
+      console.log(datos);
       // showCategoriesList2(filtrar(event));
     });
 
