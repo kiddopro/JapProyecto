@@ -226,9 +226,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
       //   }
       // }
 
-      showCategoriesList2(
-        filtrar(document.getElementById('searchInput').value)
-      );
+      console.log(event);
+      // showCategoriesList2(filtrar(event));
     });
 
   document.getElementById('sortAsc').addEventListener('click', function () {
