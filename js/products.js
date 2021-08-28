@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
   document
     .getElementById('searchInput')
-    .addEventListener('keypress', function (event) {
+    .addEventListener('input', function (event) {
       // if (event.key === 'Enter') {
       //   search = document.getElementById('searchInput').value;
       //   if (search != '') {
