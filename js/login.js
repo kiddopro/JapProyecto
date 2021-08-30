@@ -1,10 +1,11 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+//esta funcion es para el index también
 document.addEventListener('DOMContentLoaded', function (e) {
   let profile = document.getElementById('profile');
-  let usuario = localStorage.getItem('username');
-  let email = localStorage.getItem('email');
+  let usuario = sessionStorage.getItem('username');
+  let email = sessionStorage.getItem('email');
   usuario ? (profile.innerHTML = usuario) : (profile.innerHTML = email);
 });
 
