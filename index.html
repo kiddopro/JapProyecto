@@ -28,8 +28,8 @@
     <script src="https://apis.google.com/js/platform.js"></script>
     <script src="js/login.js"></script>
     <script>
-      let google = localStorage.getItem('email');
-      let common = localStorage.getItem('username');
+      let google = sessionStorage.getItem('email');
+      let common = sessionStorage.getItem('username');
       if (google) {
         console.log('Se logueo con google');
         console.log(google);

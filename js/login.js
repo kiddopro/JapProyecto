@@ -19,9 +19,8 @@ userLogin = () => {
     alert.style.display = 'inline';
   } else {
     alert.style.display = 'none';
-    localStorage.setItem('username', user);
-    localStorage.setItem('password', pass);
-    localStorage.setItem('typeUser', 'member');
+    sessionStorage.setItem('username', user);
+    sessionStorage.setItem('typeUser', 'member');
     location.href = 'index.html';
   }
 };
@@ -34,7 +33,7 @@ function onSignIn(googleUser) {
   console.log('Given Name: ' + profile.getGivenName());
   console.log('Family Name: ' + profile.getFamilyName());
   console.log('Image URL: ' + profile.getImageUrl());
-  localStorage.setItem('email', profile.getEmail());
+  sessionStorage.setItem('email', profile.getEmail());
 
   // The ID token you need to pass to your backend:
   var id_token = googleUser.getAuthResponse().id_token;
