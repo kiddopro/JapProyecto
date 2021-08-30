@@ -51,12 +51,12 @@ function onSignIn(googleUser) {
 //   });
 
 function signOut() {
-  if (localStorage.getItem('username')) {
-    localStorage.clear();
+  if (sessionStorage.getItem('username')) {
+    sessionStorage.clear();
     location.href = 'login.html';
   } else {
     //https://mail.google.com/mail/u/0/?logout&hl=en
-    localStorage.clear();
+    sessionStorage.clear();
     location.href =
       'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login.html';
     // location.href =
