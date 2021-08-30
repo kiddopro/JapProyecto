@@ -9,7 +9,10 @@ var search = undefined;
 
 const filtrar = (criterio) => {
   return currentCategoriesArray.filter((element) => {
-    return element.name.toLowerCase().indexOf(criterio.toLowerCase()) > -1;
+    return (
+      element.name.toLowerCase().indexOf(criterio.toLowerCase()) > -1 ||
+      element.description.toLowerCase().indexOf(criterio.toLowerCase()) > -1 //busca por el nombre o la descripcion
+    );
   });
 };
 
