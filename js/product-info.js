@@ -8,6 +8,7 @@ let productDescription = document.querySelector('#productDescription');
 let productSoldCount = document.querySelector('#productSoldCount');
 let productCost = document.querySelector('#productCost');
 let productCategory = document.querySelector('#productCategory');
+let productImages = document.querySelector('#productImagesGallery');
 getJSONData(PRODUCT_INFO_URL)
   .then(function (result) {
     let product = result.data;
@@ -17,5 +18,20 @@ getJSONData(PRODUCT_INFO_URL)
     productSoldCount.innerHTML = product.soldCount;
     productCost.innerHTML = product.cost;
     productCategory.innerHTML = product.category;
+    let elementoQueContieneTodasLasImagenes = '';
+    for (let i = 0; i < product.images.length; i++) {
+      let img = product.images[i];
+      elementoQueContieneTodasLasImagenes +=
+        `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` +
+        img +
+        `" alt="">
+            </div>
+        </div>
+        `;
+    }
+    productImages.innerHTML = elementoQueContieneTodasLasImagenes;
   })
   .catch((error) => console.log(error));
