@@ -79,9 +79,9 @@ function showCategoriesList() {
 
     if (
       (minCount == undefined ||
-        (minCount != undefined && parseInt(category.soldCount) >= minCount)) &&
+        (minCount != undefined && parseInt(category.cost) >= minCount)) &&
       (maxCount == undefined ||
-        (maxCount != undefined && parseInt(category.soldCount) <= maxCount))
+        (maxCount != undefined && parseInt(category.cost) <= maxCount))
     ) {
       htmlContentToAppend +=
         `
