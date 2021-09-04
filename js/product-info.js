@@ -64,16 +64,102 @@ getJSONData(PRODUCT_INFO_COMMENTS_URL)
     let e = '';
     console.log(comentarios);
     for (let i = 0; i < comentarios.length; i++) {
-      e +=
-        `<span id='commentScore'>` +
-        comentarios[i].score +
-        `</span><span id='commentUser'>` +
-        comentarios[i].user +
-        `</span><p id='commentDescription' class='m-0'>` +
-        comentarios[i].description +
-        `</p><span id='commentDate'>` +
-        comentarios[i].dateTime +
-        `</span><br><br>`;
+      if (comentarios[i].score === 1) {
+        e +=
+          `<div id='starsContainer'>` +
+          `
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>` +
+          `</div><span id='commentUser'>` +
+          comentarios[i].user +
+          `</span><p id='commentDescription' class='m-0'>` +
+          comentarios[i].description +
+          `</p><span id='commentDate'>` +
+          comentarios[i].dateTime +
+          `</span><br><br>`;
+      } else if (comentarios[i].score === 2) {
+        e +=
+          `<div id='starsContainer'>` +
+          `
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>` +
+          `</div><span id='commentUser'>` +
+          comentarios[i].user +
+          `</span><p id='commentDescription' class='m-0'>` +
+          comentarios[i].description +
+          `</p><span id='commentDate'>` +
+          comentarios[i].dateTime +
+          `</span><br><br>`;
+      } else if (comentarios[i].score === 3) {
+        e +=
+          `<div id='starsContainer'>` +
+          `
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>` +
+          `</div><span id='commentUser'>` +
+          comentarios[i].user +
+          `</span><p id='commentDescription' class='m-0'>` +
+          comentarios[i].description +
+          `</p><span id='commentDate'>` +
+          comentarios[i].dateTime +
+          `</span><br><br>`;
+      } else if (comentarios[i].score === 4) {
+        e +=
+          `<div id='starsContainer'>` +
+          `
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>` +
+          `</div><span id='commentUser'>` +
+          comentarios[i].user +
+          `</span><p id='commentDescription' class='m-0'>` +
+          comentarios[i].description +
+          `</p><span id='commentDate'>` +
+          comentarios[i].dateTime +
+          `</span><br><br>`;
+      } else {
+        e +=
+          `<div id='starsContainer'>` +
+          `
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>` +
+          `</div><span id='commentUser'>` +
+          comentarios[i].user +
+          `</span><p id='commentDescription' class='m-0'>` +
+          comentarios[i].description +
+          `</p><span id='commentDate'>` +
+          comentarios[i].dateTime +
+          `</span><br><br>`;
+      }
+      //   e +=
+      //     `<div id='starsContainer'>` +
+      //     `
+      //         <span class="fa fa-star checked"></span>
+      //         <span class="fa fa-star"></span>
+      //         <span class="fa fa-star"></span>
+      //         <span class="fa fa-star"></span>
+      //         <span class="fa fa-star"></span>` +
+      //     `</div><span id='commentUser'>` +
+      //     comentarios[i].user +
+      //     `</span><p id='commentDescription' class='m-0'>` +
+      //     comentarios[i].description +
+      //     `</p><span id='commentDate'>` +
+      //     comentarios[i].dateTime +
+      //     `</span><br><br>`;
     }
     productComments.innerHTML = e;
   })
