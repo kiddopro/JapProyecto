@@ -10,6 +10,7 @@ let productCost = document.querySelector('#productCost');
 let productCategory = document.querySelector('#productCategory');
 let productImages = document.querySelector('#productImagesGallery');
 let productCarusel = document.querySelector('.carousel-inner');
+let productComments = document.querySelector('#productComments');
 getJSONData(PRODUCT_INFO_URL)
   .then(function (result) {
     let product = result.data;
@@ -19,8 +20,7 @@ getJSONData(PRODUCT_INFO_URL)
     productSoldCount.innerHTML = product.soldCount;
     productCost.innerHTML = product.cost;
     productCategory.innerHTML = product.category;
-    let elementoQueContieneTodasLasImagenes = '';
-    let carousel = '';
+    // let elementoQueContieneTodasLasImagenes = '';
     // for (let i = 0; i < product.images.length; i++) {
     //   let img = product.images[i];
     //   elementoQueContieneTodasLasImagenes +=
@@ -35,6 +35,7 @@ getJSONData(PRODUCT_INFO_URL)
     //     `;
     // }
     // productImages.innerHTML = elementoQueContieneTodasLasImagenes;
+    let carousel = '';
     for (let i = 0; i < product.images.length; i++) {
       let img = product.images[i];
       if (i === 0) {
@@ -54,5 +55,26 @@ getJSONData(PRODUCT_INFO_URL)
       }
     }
     productCarusel.innerHTML = carousel;
+  })
+  .catch((error) => console.log(error));
+
+getJSONData(PRODUCT_INFO_COMMENTS_URL)
+  .then((comments) => {
+    let comentarios = comments.data;
+    let e = '';
+    console.log(comentarios);
+    for (let i = 0; i < comentarios.length; i++) {
+      e +=
+        `<span id='commentScore'>` +
+        comentarios[i].score +
+        `</span><span id='commentUser'>` +
+        comentarios[i].user +
+        `</span><p id='commentDescription' class='m-0'>` +
+        comentarios[i].description +
+        `</p><span id='commentDate'>` +
+        comentarios[i].dateTime +
+        `</span><br><br>`;
+    }
+    productComments.innerHTML = e;
   })
   .catch((error) => console.log(error));
