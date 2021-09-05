@@ -170,7 +170,7 @@ document.getElementById('btnComentar').addEventListener('click', (event) => {
   //obtenemos la fecha
   let date = new Date();
   let fecha =
-    date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay();
+    date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
   let hora =
     date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
   //se la seteamos como queremos (primero la fecha, luego la hora) a otra variable
