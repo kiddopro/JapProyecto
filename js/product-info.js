@@ -183,82 +183,89 @@ document.getElementById('btnComentar').addEventListener('click', (event) => {
     ? sessionStorage.getItem('username')
     : sessionStorage.getItem('email');
 
-  if (puntaje === '1') {
-    div.innerHTML =
-      `
+  if (comentario) {
+    if (puntaje === '1') {
+      div.innerHTML =
+        `
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>` +
-      `</div><br><span id='commentUser'>` +
-      usuarioComenta +
-      `</span><p id='commentDescription' class='m-0'>` +
-      comentario +
-      `</p><span id='commentDate'>` +
-      fechaCompleta +
-      `</span><br><br>`;
-  } else if (puntaje === '2') {
-    div.innerHTML =
-      `
+        `</div><br><span id='commentUser'>` +
+        usuarioComenta +
+        `</span><p id='commentDescription' class='m-0'>` +
+        comentario +
+        `</p><span id='commentDate'>` +
+        fechaCompleta +
+        `</span><br><br>`;
+    } else if (puntaje === '2') {
+      div.innerHTML =
+        `
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>` +
-      `</div><br><span id='commentUser'>` +
-      usuarioComenta +
-      `</span><p id='commentDescription' class='m-0'>` +
-      comentario +
-      `</p><span id='commentDate'>` +
-      fechaCompleta +
-      `</span><br><br>`;
-  } else if (puntaje === '3') {
-    div.innerHTML =
-      `
+        `</div><br><span id='commentUser'>` +
+        usuarioComenta +
+        `</span><p id='commentDescription' class='m-0'>` +
+        comentario +
+        `</p><span id='commentDate'>` +
+        fechaCompleta +
+        `</span><br><br>`;
+    } else if (puntaje === '3') {
+      div.innerHTML =
+        `
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>` +
-      `</div><br><span id='commentUser'>` +
-      usuarioComenta +
-      `</span><p id='commentDescription' class='m-0'>` +
-      comentario +
-      `</p><span id='commentDate'>` +
-      fechaCompleta +
-      `</span><br><br>`;
-  } else if (puntaje === '4') {
-    div.innerHTML =
-      `
+        `</div><br><span id='commentUser'>` +
+        usuarioComenta +
+        `</span><p id='commentDescription' class='m-0'>` +
+        comentario +
+        `</p><span id='commentDate'>` +
+        fechaCompleta +
+        `</span><br><br>`;
+    } else if (puntaje === '4') {
+      div.innerHTML =
+        `
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star"></span>` +
-      `</div><br><span id='commentUser'>` +
-      usuarioComenta +
-      `</span><p id='commentDescription' class='m-0'>` +
-      comentario +
-      `</p><span id='commentDate'>` +
-      fechaCompleta +
-      `</span><br><br>`;
-  } else {
-    div.innerHTML =
-      `
+        `</div><br><span id='commentUser'>` +
+        usuarioComenta +
+        `</span><p id='commentDescription' class='m-0'>` +
+        comentario +
+        `</p><span id='commentDate'>` +
+        fechaCompleta +
+        `</span><br><br>`;
+    } else {
+      div.innerHTML =
+        `
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>` +
-      `</div><br><span id='commentUser'>` +
-      usuarioComenta +
-      `</span><p id='commentDescription' class='m-0'>` +
-      comentario +
-      `</p><span id='commentDate'>` +
-      fechaCompleta +
-      `</span><br><br>`;
+        `</div><br><span id='commentUser'>` +
+        usuarioComenta +
+        `</span><p id='commentDescription' class='m-0'>` +
+        comentario +
+        `</p><span id='commentDate'>` +
+        fechaCompleta +
+        `</span><br><br>`;
+    }
+  } else {
+    comment.style.border = '1px solid red';
   }
+  comment.addEventListener('keypress', () => {
+    comment.style.border = '1px solid lightgrey';
+  });
   productComments.appendChild(div);
 });
 
