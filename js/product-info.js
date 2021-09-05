@@ -16,7 +16,6 @@ let calificacion = document.querySelector('#calification');
 getJSONData(PRODUCT_INFO_URL)
   .then(function (result) {
     let product = result.data;
-    console.log(result.data);
     productName.innerHTML = product.name;
     productDescription.innerHTML = product.description;
     productSoldCount.innerHTML = product.soldCount;
@@ -64,7 +63,6 @@ getJSONData(PRODUCT_INFO_COMMENTS_URL)
   .then((comments) => {
     let comentarios = comments.data;
     let e = '';
-    console.log(comentarios);
     for (let i = 0; i < comentarios.length; i++) {
       if (comentarios[i].score === 1) {
         e +=
@@ -168,7 +166,101 @@ getJSONData(PRODUCT_INFO_COMMENTS_URL)
   .catch((error) => console.log(error));
 
 //evento al presionar el boton comentar
-document.getElementById('btnComentar').addEventListener('click', (event) => {});
+document.getElementById('btnComentar').addEventListener('click', (event) => {
+  //obtenemos la fecha
+  let date = new Date();
+  let fecha =
+    date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDay();
+  let hora =
+    date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+  //se la seteamos como queremos (primero la fecha, luego la hora) a otra variable
+  let fechaCompleta = fecha + ' ' + hora;
+  let div = document.createElement('div');
+  div.id = 'starsContainer';
+  let comentario = comment.value;
+  let puntaje = calificacion.value;
+  let usuarioComenta = sessionStorage.getItem('username')
+    ? sessionStorage.getItem('username')
+    : sessionStorage.getItem('email');
+
+  if (puntaje === '1') {
+    div.innerHTML =
+      `
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>` +
+      `</div><br><span id='commentUser'>` +
+      usuarioComenta +
+      `</span><p id='commentDescription' class='m-0'>` +
+      comentario +
+      `</p><span id='commentDate'>` +
+      fechaCompleta +
+      `</span><br><br>`;
+  } else if (puntaje === '2') {
+    div.innerHTML =
+      `
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>` +
+      `</div><br><span id='commentUser'>` +
+      usuarioComenta +
+      `</span><p id='commentDescription' class='m-0'>` +
+      comentario +
+      `</p><span id='commentDate'>` +
+      fechaCompleta +
+      `</span><br><br>`;
+  } else if (puntaje === '3') {
+    div.innerHTML =
+      `
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>` +
+      `</div><br><span id='commentUser'>` +
+      usuarioComenta +
+      `</span><p id='commentDescription' class='m-0'>` +
+      comentario +
+      `</p><span id='commentDate'>` +
+      fechaCompleta +
+      `</span><br><br>`;
+  } else if (puntaje === '4') {
+    div.innerHTML =
+      `
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>` +
+      `</div><br><span id='commentUser'>` +
+      usuarioComenta +
+      `</span><p id='commentDescription' class='m-0'>` +
+      comentario +
+      `</p><span id='commentDate'>` +
+      fechaCompleta +
+      `</span><br><br>`;
+  } else {
+    div.innerHTML =
+      `
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>` +
+      `</div><br><span id='commentUser'>` +
+      usuarioComenta +
+      `</span><p id='commentDescription' class='m-0'>` +
+      comentario +
+      `</p><span id='commentDate'>` +
+      fechaCompleta +
+      `</span><br><br>`;
+  }
+  productComments.appendChild(div);
+});
 
 //para mas adelante
 function cargarComentarios(score) {}
