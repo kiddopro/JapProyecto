@@ -267,6 +267,7 @@ document.getElementById('btnComentar').addEventListener('click', (event) => {
     comment.style.border = '1px solid lightgrey';
   });
   productComments.appendChild(div);
+  comment.value = '';
 });
 
 //para mas adelante
