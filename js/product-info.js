@@ -11,6 +11,8 @@ let productCategory = document.querySelector('#productCategory');
 let productImages = document.querySelector('#productImagesGallery');
 let productCarusel = document.querySelector('.carousel-inner');
 let productComments = document.querySelector('#productComments');
+let comment = document.querySelector('#inputComment');
+let calificacion = document.querySelector('#calification');
 getJSONData(PRODUCT_INFO_URL)
   .then(function (result) {
     let product = result.data;
@@ -164,3 +166,9 @@ getJSONData(PRODUCT_INFO_COMMENTS_URL)
     productComments.innerHTML = e;
   })
   .catch((error) => console.log(error));
+
+//evento al presionar el boton comentar
+document.getElementById('btnComentar').addEventListener('click', (event) => {});
+
+//para mas adelante
+function cargarComentarios(score) {}

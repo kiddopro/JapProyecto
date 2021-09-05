@@ -188,15 +188,25 @@
         </dd>
         <div class="row">
           <div class="col-2">-</div>
-          <div class="col-8 bg-light">
+          <div class="col-8">
+            <small
+              class="text-white my-2 float-right"
+              style="
+                text-shadow: 0 0 12px black, 0 0 12px black, 0 0 12px black;
+              "
+              >¡Déjanos tu comentario!</small
+            >
             <textarea
               type="text"
               name=""
-              id=""
+              id="inputComment"
               class="form-control mt-2"
               placeholder="Comentario"
             ></textarea>
-            <button class="btn btn-primary mb-2 float-right mt-1">
+            <button
+              class="btn btn-primary mb-2 float-right mt-1"
+              id="btnComentar"
+            >
               Comentar
             </button>
             <label for="calification" class="float-left mr-2 mt-1"
