@@ -167,6 +167,13 @@ getJSONData(PRODUCT_INFO_COMMENTS_URL)
 
 //evento al presionar el boton comentar
 document.getElementById('btnComentar').addEventListener('click', (event) => {
+  agregarComentario();
+});
+
+//para mas adelante
+function cargarComentarios(score) {}
+
+function agregarComentario() {
   //obtenemos la fecha
   let date = new Date();
   let fecha =
@@ -268,7 +275,4 @@ document.getElementById('btnComentar').addEventListener('click', (event) => {
   });
   productComments.appendChild(div);
   comment.value = '';
-});
-
-//para mas adelante
-function cargarComentarios(score) {}
+}
