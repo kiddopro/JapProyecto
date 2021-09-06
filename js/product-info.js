@@ -56,6 +56,7 @@ getJSONData(PRODUCT_INFO_URL)
       }
     }
     productCarusel.innerHTML = carousel;
+    agregarRelacionado();
   })
   .catch((error) => console.log(error));
 
@@ -275,4 +276,53 @@ function agregarComentario() {
   });
   productComments.appendChild(div);
   comment.value = '';
+}
+
+function agregarRelacionado() {
+  let div = document.querySelector('#productosRelacionados');
+  let array;
+  getJSONData(PRODUCTS_URL)
+    .then(function (response) {
+      response.status === 'ok'
+        ? (array = response.data)
+        : console.log(response.error);
+
+      div.innerHTML =
+        `<div
+          class="card mr-3"
+          style="width: 18rem"
+        ><img class="card-img-top" src="` +
+        array[1].imgSrc +
+        `" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">` +
+        array[1].name +
+        `</h5>
+            <p class="card-text">
+              ` +
+        array[1].description +
+        `
+            </p>
+            <a href="#" class="card-link">ver</a>
+          </div></div>
+          <div
+          class="card"
+          style="width: 18rem"
+        >
+        <img class="card-img-top" src="` +
+        array[3].imgSrc +
+        `" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">` +
+        array[3].name +
+        `</h5>
+            <p class="card-text">
+              ` +
+        array[3].description +
+        `
+            </p>
+            <a href="#" class="card-link">ver</a>
+          </div></div>`;
+    })
+    .catch((error) => console.log(error));
 }
