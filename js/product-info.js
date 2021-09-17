@@ -83,6 +83,7 @@ document.getElementById('btnComentar').addEventListener('click', (event) => {
 function agregarComentario() {
   //obtenemos la fecha
   let date = new Date();
+
   let fecha =
     date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
   let hora =
@@ -120,6 +121,7 @@ function agregarComentario() {
   comment.value = '';
 }
 
+//agrega los productos relacionados con el indice establecido
 function agregarRelacionado() {
   let div = document.querySelector('#productosRelacionados');
   let array;
