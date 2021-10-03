@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener('DOMContentLoaded', function (e) {});
-
+let related = [];
 let productName = document.querySelector('#productName');
 let productDescription = document.querySelector('#productDescription');
 let productSoldCount = document.querySelector('#productSoldCount');
@@ -18,6 +18,7 @@ let notChecked = "<small class='fa fa-star'></small>";
 getJSONData(PRODUCT_INFO_URL)
   .then(function (result) {
     let product = result.data;
+    related = product.relatedProducts;
     productName.innerHTML = product.name;
     productDescription.innerHTML = product.description;
     productSoldCount.innerHTML = product.soldCount;
@@ -131,26 +132,28 @@ function agregarRelacionado() {
         ? (array = response.data)
         : console.log(response.error);
 
-      for (let i = 0; i < array.length; i++) {
-        if (i == 1 || i == 3) {
-          div.innerHTML +=
-            `<div
+      for (let z = 0; z < related.length; z++) {
+        for (let i = 0; i < array.length; i++) {
+          if (i == related[z]) {
+            div.innerHTML +=
+              `<div
           class="card mr-3"
           style="width: 18rem"
         ><img class="card-img-top" src="` +
-            array[i].imgSrc +
-            `" alt="Card image cap" />
+              array[i].imgSrc +
+              `" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">` +
-            array[i].name +
-            `</h5>
+              array[i].name +
+              `</h5>
             <p class="card-text">
               ` +
-            array[i].description +
-            `
+              array[i].description +
+              `
             </p>
             <a href="#" class="card-link">ver</a>
           </div></div>`;
+          }
         }
       }
       // div.innerHTML =
