@@ -175,3 +175,11 @@ div.buttons button:focus {
   background-color: lightgray !important;
   outline: 0;
 }
+
+div.buy-part button {
+  border: none;
+}
+
+div.buy-part button:hover {
+  background-color: #53c0fb;
+}
