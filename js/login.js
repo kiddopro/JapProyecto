@@ -2,12 +2,26 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 //esta funcion es para el index también
+
 document.addEventListener('DOMContentLoaded', function (e) {
   let profile = document.getElementById('profile');
   let usuario = sessionStorage.getItem('username');
   let email = sessionStorage.getItem('email');
   usuario ? (profile.innerHTML = usuario) : (profile.innerHTML = email);
+  carrito();
 });
+
+function carrito() {
+  fetch('https://japdevdep.github.io/ecommerce-api/cart/987.json')
+    .then((res) => res.json())
+    .then((data) => {
+      let respuesta = [];
+      respuesta = data.articles;
+      let cartCounter = (document.getElementById('cartCounter').innerHTML =
+        respuesta.length);
+    })
+    .catch((err) => err);
+}
 
 userLogin = () => {
   let alert = document.getElementById('alert-messsage');

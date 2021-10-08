@@ -158,3 +158,9 @@ div.popup-logout:hover {
   cursor: pointer;
   width: 62px;
 }
+
+span#cartCounter {
+  background-color: green;
+  padding: 1px 5px;
+  color: white;
+}
