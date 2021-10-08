@@ -28,11 +28,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
         </div>
         <div class="right-side w-75">
           <div class="cart-header d-flex justify-content-between mb-3">
-            <span>` +
+            <span class="font-weight-bold">` +
           item.name +
-          `</span><span>` +
+          `</span>
+            <div class="product-count">
+              <i class="fas fa-shopping-cart mr-1"></i
+              ><span>` +
           item.count +
-          ` to buy</span>
+          `</span>
+            </div>
           </div>
           <div
             class="cart-body mb-3"
@@ -59,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
             "
           >
             <div class="product-cost">
-              <i class="fas fa-dollar-sign"></i>
               <span>` +
+          item.currency +
+          ' ' +
           item.unitCost +
           `</span>
             </div>
@@ -81,16 +86,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
           d-flex
           align-items-center
           justify-content-end
-          border
           p-0
           buy-part
         "
       >
-        <i class="fas fa-shopping-cart mr-1"></i>
-        <span>` +
+        <i class="fas fa-dollar-sign"> Total:</i>
+
+        <span class="ml-1">` +
           costo * cantidad +
           `</span>
-        <button class="ml-5">Buy</button>
+        <button class="ml-5 rounded p-2">Buy</button>
       </div>`;
       });
       contenedor.innerHTML = htmlText;
