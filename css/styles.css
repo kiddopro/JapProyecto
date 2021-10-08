@@ -164,3 +164,14 @@ span#cartCounter {
   padding: 1px 5px;
   color: white;
 }
+div.buttons button {
+  border: 1px solid lightgray !important;
+  background-color: transparent !important;
+  border-radius: 360px;
+}
+
+div.buttons button:focus-visible,
+div.buttons button:focus {
+  background-color: lightgray !important;
+  outline: 0;
+}

@@ -19,6 +19,12 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
 
     <style>
       .bd-placeholder-img {
@@ -83,22 +89,57 @@
         </div>
       </div>
     </nav>
+    <!-- cuerpo -->
     <div class="container p-5">
-      <div
-        class="alert alert-danger"
-        role="alert"
-        style="position: relative; width: auto; top: 0"
-      >
-        <h4 class="alert-heading">¡A trabajar! :)</h4>
-        <p>
-          Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y
-          Entrega 7 (Fecha de entrega: 14/11/2021).
-        </p>
-        <hr />
-        <p class="mb-0">
-          Para saber qué debes hacer, fijate en la actividad en CREA
-          correspondiente a esta entrega.
-        </p>
+      <div class="cart container-fluid d-flex border p-3">
+        <div
+          class="
+            left-side
+            w-25
+            d-flex
+            align-items-center
+            justify-content-md-center
+          "
+        >
+          <img src="https://via.placeholder.com/150" alt="" srcset="" />
+        </div>
+        <div class="right-side w-75">
+          <div class="cart-header d-flex justify-content-between mb-3">
+            <span>product_name</span><span>product_count</span>
+          </div>
+          <div
+            class="cart-body mb-3"
+            style="overflow-y: scroll; overflow-x: hidden; max-height: 80px"
+          >
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea,
+              nobis officia omnis voluptatum aspernatur illum nihil iste
+              officiis maxime, debitis sequi praesentium aliquid dolorum aut
+              corrupti? Tenetur perferendis est omnis. Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Iure nesciunt debitis ullam
+              quis cumque asperiores fuga temporibus, odit porro architecto
+              voluptates exercitationem dicta quaerat velit odio voluptate
+              fugiat ad ipsum!
+            </p>
+          </div>
+          <div
+            class="
+              cart-footer
+              d-flex
+              justify-content-between
+              mt-3
+              align-items-center
+            "
+          >
+            <span>product_cost</span>
+            <div class="buttons">
+              <button>
+                <i class="fas fa-plus"></i>
+              </button>
+              <button><i class="fas fa-minus"></i></button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="popup-logout">
