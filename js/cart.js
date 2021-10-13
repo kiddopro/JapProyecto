@@ -64,11 +64,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea,
               nobis officia omnis voluptatum aspernatur illum nihil iste
               officiis maxime, debitis sequi praesentium aliquid dolorum aut
-              corrupti? Tenetur perferendis est omnis. Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Iure nesciunt debitis ullam
-              quis cumque asperiores fuga temporibus, odit porro architecto
-              voluptates exercitationem dicta quaerat velit odio voluptate
-              fugiat ad ipsum!
+              corrupti? Tenetur perferendis est omnis. 
             </p>
           </div>
           <div
