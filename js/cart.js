@@ -109,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <span id="cart_total" class="ml-1">` +
           costo * cantidad +
           `</span>
-        <button class="ml-5 rounded p-2">Buy</button>
+        <button class="ml-5 rounded p-2 bg-success text-white">✔Terminar</button>
+        <button class="ml-1 rounded p-2 bg-danger text-white">❌Cancelar</button>
       </div>`;
       });
       contenedor.innerHTML = htmlText;
