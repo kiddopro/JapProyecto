@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         >
           <img src="` +
           item.src +
-          `" alt="" srcset="" />
+          `" alt="" srcset="" style="width:100%; height:150px; object-fit: contain"/>
         </div>
         <div class="right-side w-75">
           <div class="cart-header d-flex justify-content-between mb-3">
