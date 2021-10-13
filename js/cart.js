@@ -1,6 +1,22 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+let cantidad = 0;
+let costo = 0;
+const addProduct = () => {
+  let elementoCantidad = document.getElementById('cart_count');
+  let elementoTotal = document.getElementById('cart_total');
+  elementoCantidad.innerHTML = cantidad += 1;
+  elementoTotal.innerHTML = costo * cantidad;
+  console.log(cantidad);
+};
+
+const deleteProduct = () => {
+  let elementoCantidad = document.getElementById('cart_count');
+  let elementoTotal = document.getElementById('cart_total');
+  elementoCantidad.innerHTML = cantidad > 1 ? (cantidad -= 1) : cantidad;
+  elementoTotal.innerHTML = costo * cantidad;
+};
 
 document.addEventListener('DOMContentLoaded', function (e) {
   let contenedor = document.getElementById('contenedor-tarjeta');
@@ -8,11 +24,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
   fetch(CART_INFO_URL)
     .then((res) => res.json())
     .then((data) => {
-      data.articles.map((item) => {
-        let cantidad = item.count;
-        let costo = item.unitCost;
+      data.articles.map((item, index) => {
+        cantidad = item.count;
+        costo = item.unitCost;
         htmlText +=
-          `<div class="cart container-fluid d-flex border p-3">
+          `<div id="` +
+          index +
+          `"class="cart container-fluid d-flex border p-3">
         <div
           class="
             left-side
@@ -33,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           `</span>
             <div class="product-count">
               <i class="fas fa-shopping-cart mr-1"></i
-              ><span>` +
+              ><span id="cart_count">` +
           item.count +
           `</span>
             </div>
@@ -71,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
             </div>
 
             <div class="buttons">
-              <button>
+              <button onclick="addProduct()">
                 <i class="fas fa-plus"></i>
               </button>
-              <button><i class="fas fa-minus"></i></button>
+              <button onclick="deleteProduct()"><i class="fas fa-minus"></i></button>
             </div>
           </div>
         </div>
@@ -92,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
       >
         <i class="fas fa-dollar-sign"> Total:</i>
 
-        <span class="ml-1">` +
+        <span id="cart_total" class="ml-1">` +
           costo * cantidad +
           `</span>
         <button class="ml-5 rounded p-2">Buy</button>
