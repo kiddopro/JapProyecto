@@ -12,13 +12,16 @@ const addProduct = (id) => {
   let elementoSubTotal = document.getElementById('cart_subtotal');
   let elementoTotal = document.getElementById('cart_total');
   let elementoIva = document.getElementById('cart_iva');
+  let elementoModal = document.getElementById('cart_modal');
   elementoCantidad.innerHTML = cantidad += 1;
   subtotal = costo * cantidad;
   iva = subtotal * IVA;
   total = subtotal * IVA + subtotal;
+
   elementoSubTotal.innerHTML = subtotal;
   elementoIva.innerHTML = iva;
   elementoTotal.innerHTML = total;
+  elementoModal.innerHTML = total;
 };
 
 const deleteProduct = (id) => {
@@ -26,13 +29,16 @@ const deleteProduct = (id) => {
   let elementoSubTotal = document.getElementById('cart_subtotal');
   let elementoTotal = document.getElementById('cart_total');
   let elementoIva = document.getElementById('cart_iva');
+  let elementoModal = document.getElementById('cart_modal');
   elementoCantidad.innerHTML = cantidad > 1 ? (cantidad -= 1) : cantidad;
   subtotal = costo * cantidad;
   iva = subtotal * IVA;
   total = subtotal * IVA + subtotal;
+
   elementoSubTotal.innerHTML = subtotal;
   elementoIva.innerHTML = iva;
   elementoTotal.innerHTML = total;
+  elementoModal.innerHTML = total;
 };
 
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -159,9 +165,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         </button>
       </div>
       <div class="modal-body">
-        Está apunto de comprar el producto con un costo de $ ` +
-        total +
-        `
+        Está apunto de comprar el producto con un costo de $ <span id="cart_modal"></span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
