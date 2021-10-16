@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
   let contenedor2 = document.getElementById('contenedor-total');
   let htmlText = '';
   let htmlTotal = '';
-  fetch(CART_INFO_URL)
+  fetch('https://japdevdep.github.io/ecommerce-api/cart/654.json')
     .then((res) => res.json())
     .then((data) => {
       data.articles.map((item, index) => {
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           class="
             border-secondary
             border-right
+            p-3
             left-side
             w-25
             d-flex
