@@ -5,6 +5,11 @@
   font-family: 'Raleway', serif !important;
 }
 
+div#precios span {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+  color: green;
+}
+
 .jumbotron .display-4 {
   font-weight: bold;
 }

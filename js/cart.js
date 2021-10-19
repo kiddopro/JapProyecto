@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         "
       >
       <!-- parte de los precios -->
-      <div class="">
+      <div class="" id= "precios">
         <i class="fas fa-dollar-sign">Subtotal:</i>
         <span id="cart_subtotal" class="ml-1"> ${subtotal}
         </span><br/>
