@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         subtotal += subtotalTodo[index];
         total = subtotal * IVA + subtotal;
         iva = subtotal * IVA;
+
         htmlText +=
           `<div id="` +
           index +
@@ -202,6 +203,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
         </div>
       </div>`;
       contenedor2.innerHTML = htmlTotal;
+      // le pasamos al modal el total de los productos
+      let modal = document.getElementById('cart_modal');
+      modal.innerHTML = total;
     })
     .catch((err) => err);
 });
