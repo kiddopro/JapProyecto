@@ -2,19 +2,31 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 const IVA = 0.22;
-let cantidad = 0;
-let costo = 0;
+let cantidad = [];
+let costo = [];
+let subtotalTodo = [];
 let subtotal = 0;
 let total = 0;
 let iva = 0;
+
+const udsToUru = (currency) => {
+  result = currency.toUpperCase() == 'UDS' ? cost * 43.91 : cost;
+  return result;
+};
 const addProduct = (id) => {
-  let elementoCantidad = document.getElementById('cart_count');
+  let elementoCantidad = document.getElementById(`cart_count${id}`);
   let elementoSubTotal = document.getElementById('cart_subtotal');
   let elementoTotal = document.getElementById('cart_total');
   let elementoIva = document.getElementById('cart_iva');
   let elementoModal = document.getElementById('cart_modal');
-  elementoCantidad.innerHTML = cantidad += 1;
-  subtotal = costo * cantidad;
+  elementoCantidad.innerHTML = cantidad[id] += 1;
+  subtotalTodo[id] = costo[id] * cantidad[id];
+  // limpiamos el valor de subtotal para ingresar el nuevo valor
+  subtotal = 0;
+  // sumamos los valores para cada elemento
+  subtotalTodo.forEach((element) => {
+    subtotal += element;
+  });
   iva = subtotal * IVA;
   total = subtotal * IVA + subtotal;
 
@@ -25,13 +37,21 @@ const addProduct = (id) => {
 };
 
 const deleteProduct = (id) => {
-  let elementoCantidad = document.getElementById('cart_count');
+  let elementoCantidad = document.getElementById(`cart_count${id}`);
   let elementoSubTotal = document.getElementById('cart_subtotal');
   let elementoTotal = document.getElementById('cart_total');
   let elementoIva = document.getElementById('cart_iva');
   let elementoModal = document.getElementById('cart_modal');
-  elementoCantidad.innerHTML = cantidad > 1 ? (cantidad -= 1) : cantidad;
-  subtotal = costo * cantidad;
+  elementoCantidad.innerHTML =
+    cantidad[id] > 1 ? (cantidad[id] -= 1) : cantidad[id];
+  subtotalTodo[id] = costo[id] * cantidad[id];
+  // limpiamos el valor de subtotal para ingresar el nuevo valor
+  subtotal = 0;
+  // sumamos los valores de cada elemento
+  subtotalTodo.forEach((element) => {
+    subtotal += element;
+  });
+
   iva = subtotal * IVA;
   total = subtotal * IVA + subtotal;
 
@@ -46,19 +66,20 @@ document.addEventListener('DOMContentLoaded', function (e) {
   let contenedor2 = document.getElementById('contenedor-total');
   let htmlText = '';
   let htmlTotal = '';
-  fetch('https://japdevdep.github.io/ecommerce-api/cart/654.json')
+  fetch(CART_WITH_TWO_PRODUCTS)
     .then((res) => res.json())
     .then((data) => {
       data.articles.map((item, index) => {
-        cantidad = item.count;
-        costo = item.unitCost;
-        subtotal = costo * cantidad;
+        cantidad[index] = item.count;
+        costo[index] = item.unitCost;
+        subtotalTodo[index] = costo[index] * cantidad[index];
+        subtotal += subtotalTodo[index];
         total = subtotal * IVA + subtotal;
         iva = subtotal * IVA;
         htmlText +=
           `<div id="` +
           index +
-          `"class="cart container-fluid d-flex border p-3">
+          `"class="cart container-fluid d-flex border p-3 mb-4">
         <div
           class="
             border-secondary
@@ -82,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           `</span>
             <div class="product-count">
               <i class="fas fa-shopping-cart mr-1"></i
-              ><span id="cart_count">` +
+              ><span id="cart_count${index}">` +
           item.count +
           `</span>
             </div>
@@ -116,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
             </div>
 
             <div class="buttons">
-              <button onclick="addProduct()">
+              <button onclick="addProduct(${index})">
                 <i class="fas fa-plus"></i>
               </button>
-              <button onclick="deleteProduct()"><i class="fas fa-minus"></i></button>
+              <button onclick="deleteProduct(${index})"><i class="fas fa-minus"></i></button>
             </div>
           </div>
         </div>
@@ -127,8 +148,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
       `;
       });
       contenedor.innerHTML = htmlText;
-      htmlTotal =
-        `<hr />
+      htmlTotal = `<hr />
       <div
         class="
           container-fluid
@@ -139,19 +159,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
           buy-part
         "
       >
+      <!-- parte de los precios -->
       <div class="">
         <i class="fas fa-dollar-sign">Subtotal:</i>
-        <span id="cart_subtotal" class="ml-1">` +
-        subtotal +
-        `</span><br/>
+        <span id="cart_subtotal" class="ml-1"> ${subtotal}
+        </span><br/>
         <i class="fas fa-dollar-sign">IVA:</i>
-        <span id="cart_iva" class="ml-1">` +
-        iva +
-        `</span><br/>
+        <span id="cart_iva" class="ml-1">${iva}</span><br/>
         <i class="fas fa-dollar-sign">Total:</i>
-        <span id="cart_total" class="ml-1">` +
-        total +
-        `</span>
+        <span id="cart_total" class="ml-1">${total}</span>
         </div>
         <div>
         <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" data-target="#exampleModal">✔Terminar</button>

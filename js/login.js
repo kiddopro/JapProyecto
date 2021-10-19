@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 });
 
 function carrito() {
-  fetch('https://japdevdep.github.io/ecommerce-api/cart/987.json')
+  fetch(CART_WITH_TWO_PRODUCTS)
     .then((res) => res.json())
     .then((data) => {
       let respuesta = [];
