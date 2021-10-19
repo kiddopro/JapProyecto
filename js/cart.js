@@ -9,8 +9,8 @@ let subtotal = 0;
 let total = 0;
 let iva = 0;
 
-const udsToUru = (currency) => {
-  result = currency.toUpperCase() == 'UDS' ? cost * 43.91 : cost;
+const udsToUru = (currency, cost) => {
+  result = currency.toUpperCase() == 'USD' ? cost * 43.91 : cost;
   return result;
 };
 const addProduct = (id) => {
@@ -71,7 +71,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
     .then((data) => {
       data.articles.map((item, index) => {
         cantidad[index] = item.count;
-        costo[index] = item.unitCost;
+        costo[index] = udsToUru(item.currency, item.unitCost);
+        console.log(
+          'Costo en: ' +
+            item.currency +
+            ' ' +
+            item.unitCost +
+            ' = ' +
+            costo[index]
+        );
         subtotalTodo[index] = costo[index] * cantidad[index];
         subtotal += subtotalTodo[index];
         total = subtotal * IVA + subtotal;
