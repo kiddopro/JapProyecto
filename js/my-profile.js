@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
   </div>
   <div class="card-body">
   <div class="nombre d-flex justify-content-between align-items-center m-1">
-    <input id="input1" class="card-title border-0 m-0" readonly value="${sessionStorage.getItem(
+    <input id="input1" class="card-title border-0 m-0" readonly onfocusout="focusout(1)" value="${sessionStorage.getItem(
       'name'
     )}"/><i class="fas fa-edit" onclick="edit(1)"></i></div>
     <div class="descripcion d-flex justify-content-between align-items-center m-1">
-    <input id="input2" class="card-text border-0 m-0" value="lorem ipsum" readonly /><i class="fas fa-edit cursor" onclick="edit(2)"></i>
+    <input id="input2" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(2)" readonly /><i class="fas fa-edit cursor" onclick="edit(2)" ></i>
     </div>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
@@ -27,7 +27,11 @@ function edit(id) {
   elemento.focus();
   elemento.removeAttribute('readonly');
   console.log(elemento);
-  elemento.addEventListener('change', (e) => {
-    elemento.setAttribute('readonly', '');
-  });
+  // elemento.addEventListener('change', (e) => {
+  //   elemento.setAttribute('readonly', '');
+  // });
+}
+
+function focusout(id) {
+  document.getElementById(`input${id}`).setAttribute('readonly', '');
 }
