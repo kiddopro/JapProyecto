@@ -188,3 +188,7 @@ div.buy-part button {
 div.buy-part button:hover {
   background-color: #53c0fb;
 }
+
+div#user_profile > div {
+  box-shadow: 0 0 12px #000 !important;
+}

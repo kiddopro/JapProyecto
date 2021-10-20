@@ -35,6 +35,8 @@ userLogin = () => {
   } else {
     alert.style.display = 'none';
     sessionStorage.setItem('username', user);
+    sessionStorage.setItem('name', 'Martin Suarez');
+    sessionStorage.setItem('img_profile', '../img/perfil4.png');
     sessionStorage.setItem('typeUser', 'member');
     location.href = 'index.html';
   }
@@ -44,6 +46,8 @@ function onSignIn(googleUser) {
   // Useful data for your client-side scripts:
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Don't send this directly to your server!
+  sessionStorage.setItem('full_name', profile.getName());
+  sessionStorage.setItem('profile_img', profile.getImageUrl());
   console.log('Full Name: ' + profile.getName());
   console.log('Given Name: ' + profile.getGivenName());
   console.log('Family Name: ' + profile.getFamilyName());
