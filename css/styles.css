@@ -192,3 +192,7 @@ div.buy-part button:hover {
 div#user_profile > div {
   box-shadow: 0 0 12px #000 !important;
 }
+
+i {
+  cursor: pointer !important;
+}

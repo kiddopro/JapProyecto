@@ -5,14 +5,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
   document.getElementById(
     'user_profile'
   ).innerHTML = `<div class="card" style="width: 18rem;">
-  <img src="${sessionStorage.getItem(
-    'img_profile'
-  )}" class="card-img-top" alt="...">
-  <div class="card-body d-flex">
-    <h5 class="card-title">${sessionStorage.getItem(
+  <div class="">
+  <img src="https://picsum.photos/536/354" class="card-img-top" alt="...">
+  </div>
+  <div class="card-body">
+  <div class="nombre d-flex justify-content-between align-items-center m-1">
+    <input class="card-title border-0 m-0" readonly value="${sessionStorage.getItem(
       'name'
-    )}</h5><i class="fas fa-edit"></i>
-    <p class="card-text">lorem ipsum</p><i class="fas fa-edit"></i>
+    )}"/><i class="fas fa-edit"></i></div>
+    <div class="descripcion d-flex justify-content-between align-items-center m-1">
+    <input class="card-text border-0 m-0" value="lorem ipsum" readonly /><i class="fas fa-edit cursor"></i>
+    </div>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>`;
