@@ -9,14 +9,21 @@ document.addEventListener('DOMContentLoaded', function (e) {
   <img src="https://picsum.photos/536/354" class="card-img-top  w-100 img-card" alt="...">
   </div>
   <div class="card-body">
-  <div class="nombre d-flex justify-content-between align-items-center m-1">
+  <div class="propiedad"><small>Fullname</small></div>
+  <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
     <input id="input1" class="card-title border-0 m-0" readonly onfocusout="focusout(1)" value="${sessionStorage.getItem(
       'name'
     )}"/><i class="fas fa-edit" onclick="edit(1)"></i></div>
-    <div class="descripcion d-flex justify-content-between align-items-center m-1">
-    <input id="input2" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(2)" readonly /><i class="fas fa-edit cursor" onclick="edit(2)" ></i>
+    
+    <div class="propiedad"><small>Edad</small></div>
+    <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
+    <input id="input2" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(2)" readonly/><i class="fas fa-edit cursor" onclick="edit(2)"></i>
     </div>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="propiedad"><small>Email</small></div>
+    <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
+    <input id="input3" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(3)" readonly/><i class="fas fa-edit cursor" onclick="edit(3)"></i>
+    </div>
+    <a href="#" class="btn btn-outline-primary">Go somewhere</a>
   </div>
 </div>`;
 });

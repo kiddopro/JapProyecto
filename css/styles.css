@@ -196,6 +196,10 @@ div#user_profile > div {
 i {
   cursor: pointer !important;
 }
+div.nombre_items {
+  box-sizing: border-box !important;
+}
 
-.img-card {
+div.propiedad {
+  display: block;
 }
