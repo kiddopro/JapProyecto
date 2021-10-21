@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
     <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
     <input id="input4" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(4)" readonly/><i class="fas fa-edit cursor" onclick="edit(4)"></i>
     </div>
-    <a href="#" class="btn btn-outline-primary">Go somewhere</a>
+    <div class="text-center mt-3">
+    <a href="#" class="btn btn-outline-success">Guardar</a>
+    </div>
   </div>
 </div>`;
 });
