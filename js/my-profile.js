@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
     <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
     <input id="input3" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(3)" readonly/><i class="fas fa-edit cursor" onclick="edit(3)"></i>
     </div>
+    <div class="propiedad"><small>Telefono</small></div>
+    <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
+    <input id="input4" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(4)" readonly/><i class="fas fa-edit cursor" onclick="edit(4)"></i>
+    </div>
     <a href="#" class="btn btn-outline-primary">Go somewhere</a>
   </div>
 </div>`;
@@ -30,15 +34,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 function edit(id) {
   console.log(id);
-  let elemento = document.getElementById(`input${id}`);
+  let elemento_seleccionado = document.getElementById(`input${id}`);
   elemento.focus();
   elemento.removeAttribute('readonly');
-  console.log(elemento);
+  console.log(elemento_seleccionado);
   // elemento.addEventListener('change', (e) => {
   //   elemento.setAttribute('readonly', '');
   // });
 }
 
 function focusout(id) {
-  document.getElementById(`input${id}`).setAttribute('readonly', '');
+  let elemento_seleccionado = document.getElementById(`input${id}`);
+  elemento_seleccionado.setAttribute('readonly', '');
 }
