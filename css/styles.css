@@ -200,9 +200,18 @@ div.nombre_items {
   box-sizing: border-box !important;
 }
 div.nombre_items input {
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  font-family: sans-serif;
+}
+
+div.nombre_items i {
+  color: lightgray;
+}
+
+div.nombre_items i:hover {
+  color: #17a2b8;
 }
 
 div.propiedad {
+  color: #17a2b8;
   display: block;
 }

@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', function (e) {
     
     <div class="propiedad"><small>Edad</small></div>
     <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
-    <input id="input2" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(2)" readonly/><i class="fas fa-edit cursor" onclick="edit(2)"></i>
+    <input id="input2" type="number" class="card-text border-0 m-0" value="22" onfocusout="focusout(2)" readonly/><i class="fas fa-edit cursor" onclick="edit(2)"></i>
     </div>
     <div class="propiedad"><small>Email</small></div>
     <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
-    <input id="input3" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(3)" readonly/><i class="fas fa-edit cursor" onclick="edit(3)"></i>
+    <input id="input3" class="card-text border-0 m-0" value="mail@mail.com" onfocusout="focusout(3)" readonly/><i class="fas fa-edit cursor" onclick="edit(3)"></i>
     </div>
     <div class="propiedad"><small>Telefono</small></div>
     <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
     <input id="input4" class="card-text border-0 m-0" value="+598 12 333 456" onfocusout="focusout(4)" readonly/><i class="fas fa-edit cursor" onclick="edit(4)"></i>
     </div>
     <div class="text-center mt-3">
-    <a href="#" class="btn btn-outline-success">Guardar</a>
+    <a href="#" class="btn btn-outline-info">Guardar</a>
     </div>
   </div>
 </div>`;
