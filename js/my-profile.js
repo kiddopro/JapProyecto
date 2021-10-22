@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', function (e) {
   document.getElementById(
     'user_profile'
-  ).innerHTML = `<div class="card" style="width: 18rem;">
+  ).innerHTML = `<div class="card" style="width: 30vw;">
   <div class="">
   <img src="https://picsum.photos/536/354" class="card-img-top  w-100 img-card" alt="...">
   </div>
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     </div>
     <div class="propiedad"><small>Telefono</small></div>
     <div class="nombre_items d-flex justify-content-between align-items-center m-0 w-100 flex-wrap">
-    <input id="input4" class="card-text border-0 m-0" value="lorem ipsum" onfocusout="focusout(4)" readonly/><i class="fas fa-edit cursor" onclick="edit(4)"></i>
+    <input id="input4" class="card-text border-0 m-0" value="+598 12 333 456" onfocusout="focusout(4)" readonly/><i class="fas fa-edit cursor" onclick="edit(4)"></i>
     </div>
     <div class="text-center mt-3">
     <a href="#" class="btn btn-outline-success">Guardar</a>
@@ -36,16 +36,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 function edit(id) {
   console.log(id);
-  let elemento_seleccionado = document.getElementById(`input${id}`);
+  let elemento = document.getElementById(`input${id}`);
   elemento.focus();
   elemento.removeAttribute('readonly');
-  console.log(elemento_seleccionado);
+  console.log(elemento);
   // elemento.addEventListener('change', (e) => {
   //   elemento.setAttribute('readonly', '');
   // });
 }
 
 function focusout(id) {
-  let elemento_seleccionado = document.getElementById(`input${id}`);
-  elemento_seleccionado.setAttribute('readonly', '');
+  document.getElementById(`input${id}`).setAttribute('readonly', '');
 }
