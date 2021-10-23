@@ -35,9 +35,7 @@ userLogin = () => {
   } else {
     alert.style.display = 'none';
     sessionStorage.setItem('username', user);
-    sessionStorage.setItem('name', 'Martin Suarez');
-    sessionStorage.setItem('img_profile', '../img/perfil4.png');
-    sessionStorage.setItem('typeUser', 'member');
+
     location.href = 'index.html';
   }
 };
@@ -71,10 +69,12 @@ function onSignIn(googleUser) {
 function signOut() {
   if (sessionStorage.getItem('username')) {
     sessionStorage.clear();
+    localStorage.clear();
     location.href = 'login.html';
   } else {
     //https://mail.google.com/mail/u/0/?logout&hl=en
     sessionStorage.clear();
+    localStorage.clear();
     location.href =
       'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://kiddopro.github.io/JapProyecto/login.html';
     // location.href =
