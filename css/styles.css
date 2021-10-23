@@ -215,3 +215,7 @@ div.propiedad {
   color: #17a2b8;
   display: block;
 }
+
+div.nombre_items input:focus-visible {
+  outline: 0;
+}

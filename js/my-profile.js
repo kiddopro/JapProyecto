@@ -39,12 +39,11 @@ function edit(id) {
   let elemento = document.getElementById(`input${id}`);
   elemento.focus();
   elemento.removeAttribute('readonly');
-  console.log(elemento);
-  // elemento.addEventListener('change', (e) => {
-  //   elemento.setAttribute('readonly', '');
-  // });
+  elemento.style.outline = '1px solid #000';
 }
 
 function focusout(id) {
-  document.getElementById(`input${id}`).setAttribute('readonly', '');
+  let elemento = document.getElementById(`input${id}`);
+  elemento.setAttribute('readonly', '');
+  elemento.style.outline = '0px';
 }
