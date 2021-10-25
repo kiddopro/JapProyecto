@@ -71,15 +71,16 @@ function focusout(id) {
 }
 
 function guardar() {
-  let nombreCompleto = document.getElementById('input1').value;
-  let edad = document.getElementById('input2').value;
-  let email = document.getElementById('input3').value;
-  let telefono = document.getElementById('input4').value;
+  // let nombreCompleto = document.getElementById('input1').value;
+  // let edad = document.getElementById('input2').value;
+  // let email = document.getElementById('input3').value;
+  // let telefono = document.getElementById('input4').value;
 
-  usuario.nombreCompleto = nombreCompleto;
-  usuario.edad = edad;
-  usuario.email = email;
-  usuario.telefono = telefono;
+  usuario.nombreCompleto = nombreCompleto =
+    document.getElementById('input1').value;
+  usuario.edad = document.getElementById('input2').value;
+  usuario.email = document.getElementById('input3').value;
+  usuario.telefono = document.getElementById('input4').value;
 
   localStorage.setItem('datosUsuario', JSON.stringify(usuario));
 
