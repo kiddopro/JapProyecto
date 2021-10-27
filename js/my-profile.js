@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
   document.getElementById(
     'user_profile'
-  ).innerHTML = `<div class="card" style="width: 30vw;">
+  ).innerHTML = `<div class="card" style="width: 100%;">
   <div class="">
   <img src="https://picsum.photos/536/354" class="card-img-top  w-100 img-card" alt="...">
   </div>
