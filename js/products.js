@@ -85,6 +85,7 @@ function showCategoriesList() {
     ) {
       htmlContentToAppend +=
         `
+        <div class="col-md-4">
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -112,7 +113,7 @@ function showCategoriesList() {
         ` 
                     </div>
                 </div>
-            </a>
+            </a></div>
             `;
     }
 
@@ -133,6 +134,7 @@ function showCategoriesList2(result) {
     ) {
       htmlContentToAppend +=
         `
+        <div class="col-md-4">
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -160,7 +162,7 @@ function showCategoriesList2(result) {
         ` 
                     </div>
                 </div>
-            </a>
+            </a></div>
             `;
     }
 

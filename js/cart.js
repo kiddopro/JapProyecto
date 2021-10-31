@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
   fetch(CART_WITH_TWO_PRODUCTS)
     .then((res) => res.json())
     .then((data) => {
+      sessionStorage.setItem('carritoDatos', JSON.stringify(data.articles));
+      console.log(sessionStorage.getItem('carritoDatos'));
       data.articles.map((item, index) => {
         cantidad[index] = item.count;
         costo[index] = udsToUru(item.currency, item.unitCost);

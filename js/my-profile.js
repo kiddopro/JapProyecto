@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 
 let usuario = {
+  imagen: '',
   nombreCompleto: '',
   edad: null,
   email: '',
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     'user_profile'
   ).innerHTML = `<div class="card" style="width: 100%;">
   <div class="">
-  <img src="https://picsum.photos/536/354" class="card-img-top  w-100 img-card" alt="...">
+  <img id="img" src="https://picsum.photos/536/354" class="card-img-top  w-100 img-card" alt="...">
   </div>
   <div class="card-body">
   <div class="propiedad"><small>Fullname</small></div>
