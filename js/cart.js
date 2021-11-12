@@ -181,19 +181,62 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <span id="cart_total" class="ml-1">${total}</span>
         </div>
         <div>
-        <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" data-target="#exampleModal">✔Terminar</button>
-        <button class="ml-1 rounded p-2 bg-danger text-white">❌Cancelar</button>
+        <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" data-target="#exampleModal">Terminar</button>
+        <button class="ml-1 rounded p-2 bg-danger text-white">Cancelar</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Purchase</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Está apunto de comprar el producto con un costo de $ <span id="cart_modal"></span>
+        <div class="form-data-user">
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombre titular / empresa</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Email</label>
+                <input type="email" class="form-control" id="inputPassword4" placeholder="">
+              </div>
+            </div>
+            
+          </form>
+        </div>
+        <hr />
+        <div class="form-card-user">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombre</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Apellido</label>
+                <input type="text" class="form-control" id="inputPassword4" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Dirección</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Ansina 110, Mercedes, 75000, Uruguay">
+            </div>
+             <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Nro. Tarjeta</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="XXXX-XXXX-XXXX-XXXX">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Cod. Seguridad</label>
+                <input type="text" class="form-control" id="inputPassword4" placeholder="XXXX">
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
