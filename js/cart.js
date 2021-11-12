@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <span id="cart_total" class="ml-1">${total}</span>
         </div>
         <div>
-        <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" data-target="#exampleModal">Terminar</button>
+        <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" id="btnTerminar" data-target="#exampleModal">Terminar</button>
         <button class="ml-1 rounded p-2 bg-danger text-white">Cancelar</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -277,15 +277,20 @@ function verificarCampos() {
   let elementosCheck = document.getElementsByName('tipoEnvio');
   let elementoTotal = document.getElementById('cart_total');
   let botonComprarModal = document.getElementById('cerrarModal');
-  for (let i = 0; i < elementos.length; i++) {
-    elementos[i].value == '' ? (isEmpty = true) : null;
-  }
-  isEmpty ? alert('Complete todos los campos') : null;
-  console.log(elementosCheck);
+  let btnTerminar = document.getElementById('btnTerminar');
   for (let i = 0; i < elementosCheck.length; i++) {
     if (elementosCheck[i].checked) {
       porcentajeModal = elementosCheck[i].value;
     }
   }
-  elementoTotal.innerHTML = total * porcentajeModal;
+  for (let i = 0; i < elementos.length; i++) {
+    elementos[i].value == '' ? (isEmpty = true) : null;
+  }
+  isEmpty
+    ? alert('Complete todos los campos')
+    : [
+        (btnTerminar.innerHTML = 'Finalizar Compra'),
+        (elementoTotal.innerHTML = total * porcentajeModal),
+      ];
+  console.log(elementosCheck);
 }
