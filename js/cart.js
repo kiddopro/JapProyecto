@@ -197,12 +197,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <form>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Nombre titular / empresa</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <label for="titularModal">Nombre titular / empresa</label>
+                <input type="text" class="form-control" id="titularModal" name="formCompra" placeholder="">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Email</label>
-                <input type="email" class="form-control" id="inputPassword4" placeholder="">
+                <label for="emailModal">Email</label>
+                <input type="email" class="form-control" id="emailModal" name="formCompra" placeholder="">
               </div>
             </div>
             
@@ -214,26 +214,26 @@ document.addEventListener('DOMContentLoaded', function (e) {
           <form>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Nombre</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <label for="nombreModal">Nombre</label>
+                <input type="text" class="form-control" name="formCompra" id="nombreModal" placeholder="">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Apellido</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="">
+                <label for="apellidoModal">Apellido</label>
+                <input type="text" class="form-control" name="formCompra" id="apellidoModal" placeholder="">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputAddress">Dirección</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="Ansina 110, Mercedes, 75000, Uruguay">
+              <label for="direccionModal">Dirección</label>
+              <input type="text" class="form-control" id="direccionModal"name="formCompra" placeholder="Ansina 110, Mercedes, 75000, Uruguay">
             </div>
              <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Nro. Tarjeta</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="XXXX-XXXX-XXXX-XXXX">
+                <label for="nroTarjetaModal">Nro. Tarjeta</label>
+                <input type="text" class="form-control" id="nroTarjetaModal" name="formCompra" placeholder="XXXX-XXXX-XXXX-XXXX">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Cod. Seguridad</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="XXXX">
+                <label for="codSeguridadModal">Cod. Seguridad</label>
+                <input type="text" class="form-control" id="codSeguridadModal" name="formCompra" placeholder="XXXX">
               </div>
             </div>
           </form>
@@ -241,21 +241,21 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <hr />
         <h5 class="modal-title mb-3" id="exampleModalLabel">Método de envío</h5>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1.15" >
-          <label class="form-check-label" for="inlineRadio1">Premium (+15%)</label>
+          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio1" value="1.15" >
+          <label class="form-check-label" for="tipoEnvio1">Premium (+15%)</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1.10">
-          <label class="form-check-label" for="inlineRadio2">Express (+10%)</label>
+          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio2" value="1.10">
+          <label class="form-check-label" for="tipoEnvio2">Express (+10%)</label>
         </div>
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="1.5" checked>
-          <label class="form-check-label" for="inlineRadio3">Standard (+5%)</label>
+          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio3" value="1.5" checked>
+          <label class="form-check-label" for="tipoEnvio3">Standard (+5%)</label>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Comprar</button>
+        <button type="button" class="btn btn-primary" onclick="verificarCampos()">Comprar</button>
       </div>
     </div>
   </div>
@@ -269,3 +269,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
     })
     .catch((err) => err);
 });
+
+function verificarCampos() {
+  let isEmpty = false;
+  let elementos = document.getElementsByName('formCompra');
+  for (let i = 0; i < elementos.length; i++) {
+    elementos[i].value == '' ? (isEmpty = true) : null;
+  }
+  isEmpty ? alert('Complete todos los campos') : alert('Todo OK');
+}
