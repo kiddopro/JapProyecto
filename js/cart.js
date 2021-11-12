@@ -8,6 +8,7 @@ let subtotalTodo = [];
 let subtotal = 0;
 let total = 0;
 let iva = 0;
+let porcentajeModal = 0;
 
 const udsToUru = (currency, cost) => {
   result = currency.toUpperCase() == 'USD' ? cost * 43.91 : cost;
@@ -254,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="cerrarModal" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary" onclick="verificarCampos()">Comprar</button>
       </div>
     </div>
@@ -273,8 +274,18 @@ document.addEventListener('DOMContentLoaded', function (e) {
 function verificarCampos() {
   let isEmpty = false;
   let elementos = document.getElementsByName('formCompra');
+  let elementosCheck = document.getElementsByName('tipoEnvio');
+  let elementoTotal = document.getElementById('cart_total');
+  let botonComprarModal = document.getElementById('cerrarModal');
   for (let i = 0; i < elementos.length; i++) {
     elementos[i].value == '' ? (isEmpty = true) : null;
   }
-  isEmpty ? alert('Complete todos los campos') : alert('Todo OK');
+  isEmpty ? alert('Complete todos los campos') : null;
+  console.log(elementosCheck);
+  for (let i = 0; i < elementosCheck.length; i++) {
+    if (elementosCheck[i].checked) {
+      porcentajeModal = elementosCheck[i].value;
+    }
+  }
+  elementoTotal.innerHTML = total * porcentajeModal;
 }
