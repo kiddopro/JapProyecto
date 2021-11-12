@@ -209,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           </form>
         </div>
         <hr />
+        <h5 class="modal-title mb-3" id="exampleModalLabel">Tarjeta</h5>
         <div class="form-card-user">
           <form>
             <div class="form-row">
@@ -238,17 +239,18 @@ document.addEventListener('DOMContentLoaded', function (e) {
           </form>
         </div>
         <hr />
+        <h5 class="modal-title mb-3" id="exampleModalLabel">Método de envío</h5>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1.15" >
-          <label class="form-check-label" for="inlineRadio1">Premium</label>
+          <label class="form-check-label" for="inlineRadio1">Premium (+15%)</label>
         </div>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1.10">
-          <label class="form-check-label" for="inlineRadio2">Express</label>
+          <label class="form-check-label" for="inlineRadio2">Express (+10%)</label>
         </div>
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="1.5" checked>
-          <label class="form-check-label" for="inlineRadio3">Standard</label>
+          <label class="form-check-label" for="inlineRadio3">Standard (+5%)</label>
         </div>
       </div>
       <div class="modal-footer">
