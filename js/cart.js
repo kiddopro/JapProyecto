@@ -12,7 +12,7 @@ let iva = 0;
 let porcentajeModal = 0;
 
 const udsToUru = (currency, cost) => {
-  result = currency.toUpperCase() == 'USD' ? cost * 43.91 : cost;
+  result = currency.toUpperCase() == 'USD' ? cost * 40 : cost;
   return result;
 };
 const addProduct = (id) => {
@@ -246,15 +246,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <h5 class="modal-title mb-3" id="exampleModalLabel">Método de envío</h5>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio1" value="1.15" >
-          <label class="form-check-label" for="tipoEnvio1">Premium (+15%)</label>
+          <label class="form-check-label" for="tipoEnvio1">Premium 2-5 días (+15%)</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio2" value="1.10">
-          <label class="form-check-label" for="tipoEnvio2">Express (+10%)</label>
+          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio2" value="1.07">
+          <label class="form-check-label" for="tipoEnvio2">Express 5-8 días(+7%)</label>
         </div>
          <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio3" value="1.05" checked>
-          <label class="form-check-label" for="tipoEnvio3">Standard (+5%)</label>
+          <label class="form-check-label" for="tipoEnvio3">Standard 12-15 días (+5%)</label>
         </div>
       </div>
       <div class="modal-footer">
@@ -290,11 +290,16 @@ function verificarCampos() {
     elementos[i].value == '' ? (isEmpty = true) : null;
   }
   isEmpty
-    ? alert('Complete todos los campos')
+    ? Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Completa todos los campos!',
+      })
     : [
         (elementoTotal.innerHTML = (total * porcentajeModal).toFixed(2)),
         (document.getElementById('btnFinalizarCompra').style.display =
           'inline'),
+        $('.moodal').modal('hide'),
       ];
   console.log(elementosCheck);
 }
