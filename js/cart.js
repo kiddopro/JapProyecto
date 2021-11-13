@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         
         <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" id="btnTerminar" data-target="#exampleModal">Terminar</button>
         <button class="ml-1 rounded p-2 bg-danger text-white" onclick="cancelar()">Cancelar</button>
-        <button id="btnFinalizarCompra" class="ml-1 rounded p-2 bg-info text-white">Finalizar Compra</button>
+        <button id="btnFinalizarCompra" class="ml-1 rounded p-2 bg-info text-white" onclick="finalizar()">Finalizar Compra</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -301,6 +301,9 @@ function verificarCampos() {
 
 function cancelar() {
   document.getElementById('btnFinalizarCompra').style.display = 'none';
+}
+
+function finalizar() {
   Swal.fire({
     type: 'success',
     title: 'Tu compra se ha realizado con éxito!',
