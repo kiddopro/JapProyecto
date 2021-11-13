@@ -219,3 +219,7 @@ div.propiedad {
 div.nombre_items input:focus-visible {
   outline: 0;
 }
+
+button#btnFinalizarCompra {
+  display: none;
+}

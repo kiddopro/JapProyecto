@@ -1,6 +1,7 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 const IVA = 0.22;
 let cantidad = [];
 let costo = [];
@@ -182,8 +183,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <span id="cart_total" class="ml-1">${total}</span>
         </div>
         <div>
+        
         <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" id="btnTerminar" data-target="#exampleModal">Terminar</button>
-        <button class="ml-1 rounded p-2 bg-danger text-white">Cancelar</button>
+        <button class="ml-1 rounded p-2 bg-danger text-white" onclick="cancelar()">Cancelar</button>
+        <button id="btnFinalizarCompra" class="ml-1 rounded p-2 bg-info text-white">Finalizar Compra</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -250,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           <label class="form-check-label" for="tipoEnvio2">Express (+10%)</label>
         </div>
          <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio3" value="1.5" checked>
+          <input class="form-check-input" type="radio" name="tipoEnvio" id="tipoEnvio3" value="1.05" checked>
           <label class="form-check-label" for="tipoEnvio3">Standard (+5%)</label>
         </div>
       </div>
@@ -289,8 +292,19 @@ function verificarCampos() {
   isEmpty
     ? alert('Complete todos los campos')
     : [
-        (btnTerminar.innerHTML = 'Finalizar Compra'),
-        (elementoTotal.innerHTML = total * porcentajeModal),
+        (elementoTotal.innerHTML = (total * porcentajeModal).toFixed(2)),
+        (document.getElementById('btnFinalizarCompra').style.display =
+          'inline'),
       ];
   console.log(elementosCheck);
+}
+
+function cancelar() {
+  document.getElementById('btnFinalizarCompra').style.display = 'none';
+  Swal.fire({
+    type: 'success',
+    title: 'Tu compra se ha realizado con éxito!',
+    showConfirmButton: false,
+    timer: 1500,
+  });
 }
