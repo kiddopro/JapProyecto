@@ -10,6 +10,7 @@ let subtotal = 0;
 let total = 0;
 let iva = 0;
 let porcentajeModal = 0;
+let mensajeFetch = '';
 
 const udsToUru = (currency, cost) => {
   result = currency.toUpperCase() == 'USD' ? cost * 40 : cost;
@@ -187,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         <button class="ml-5 rounded p-2 bg-success text-white" data-toggle="modal" id="btnTerminar" data-target="#exampleModal">Terminar</button>
         <button class="ml-1 rounded p-2 bg-danger text-white" onclick="cancelar()">Cancelar</button>
         <button id="btnFinalizarCompra" class="ml-1 rounded p-2 bg-info text-white" onclick="finalizar()">Finalizar Compra</button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade modaldemierda" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -299,7 +300,6 @@ function verificarCampos() {
         (elementoTotal.innerHTML = (total * porcentajeModal).toFixed(2)),
         (document.getElementById('btnFinalizarCompra').style.display =
           'inline'),
-        $('.moodal').modal('hide'),
       ];
   console.log(elementosCheck);
 }
@@ -309,10 +309,36 @@ function cancelar() {
 }
 
 function finalizar() {
+  let elementos = document.getElementsByName('formCompra');
   Swal.fire({
-    type: 'success',
-    title: 'Tu compra se ha realizado con éxito!',
-    showConfirmButton: false,
-    timer: 1500,
+    title: '¿Estas seguro?',
+    text: 'No podrás revertir la compra!',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, comprar!',
+  }).then((result) => {
+    console.log(result);
+    if (result.value == true) {
+      Swal.fire('Comprado!', mensajeFetch, 'success');
+      for (let i = 0; i < elementos.length; i++) {
+        elementos[i].value = '';
+      }
+      cancelar();
+    }
   });
+  // Swal.fire({
+  //   type: 'success',
+  //   title: 'Tu compra se ha realizado con éxito!',
+  //   showConfirmButton: false,
+  //   timer: 1500,
+  // });
 }
+
+fetch('https://japdevdep.github.io/ecommerce-api/cart/buy.json')
+  .then((res) => res.json())
+  .then((data) => {
+    mensajeFetch = data.msg;
+  })
+  .catch((err) => err);
